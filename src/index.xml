@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Srcs on Ameba Accessibility Guidelines</title>
+    <link>https://openameba.github.io/a11y-guidelines/src/</link>
+    <description>Recent content in Srcs on Ameba Accessibility Guidelines</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://openameba.github.io/a11y-guidelines/src/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://openameba.github.io/a11y-guidelines/src/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/src/</guid>
+      <description>実装方法集 アクセシビリティに配慮した実装コードサンプル
+理解を深めることを目的とするため、現状、HTML, CSS, JavaScriptに偏っている。 そのためコードサンプルでは、簡潔に要点のみを記述しており、コードをそのまま流用されることは想定していない。</description>
+    </item>
+    
+  </channel>
+</rss>

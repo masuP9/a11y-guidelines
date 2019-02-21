@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>4s on Ameba Accessibility Guidelines</title>
+    <link>https://openameba.github.io/a11y-guidelines/4/</link>
+    <description>Recent content in 4s on Ameba Accessibility Guidelines</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://openameba.github.io/a11y-guidelines/4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>4.1.1 HTMLを正しく記述する</title>
+      <link>https://openameba.github.io/a11y-guidelines/4/1/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/4/1/1/</guid>
+      <description>4.1.1 HTMLを正しく記述する どのブラウザから読まれても正常に動作するよう、HTMLを正しく記述する。HTMLが正しく記述されていないと、一部のブラウザで表示がおかしくなったり、スクリーンリーダーなどの支援技術で正しく解釈できない。
+HTMLを記述する時は、以下の点に注意する。
+ 開始タグと終了タグを正しく記述する 入れ子にするタグの要素はHTML仕様通りに記述する 各要素に設定するID属性はページ内で重複していない  レビュー・テスト方法 以下のツールを用いて、セルフやコードレビューなどでチェックする。
+ Validator eslint-plugin-react  負担を減らすため、テキストエディタやCIと連携させてチェックを自動化することが望ましい。
+ AtomLinter/linter-eslint roadhump/SublimeLinter-eslint mtscout6/syntastic-local-eslint.vim Microsoft/vscode-eslint WebStorm -&amp;gt; Preferences -&amp;gt; Languages &amp;amp; Frameworks -&amp;gt; JavaScript -&amp;gt; ESLint  実装方法 良い実装例 要素の閉じタグがある
+&amp;lt;div&amp;gt;文章です&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;文章です2&amp;lt;/div&amp;gt;  要素の使い方が正しい
+&amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#menu1&amp;quot;&amp;gt;メニュー１&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#menu2&amp;quot;&amp;gt;メニュー２&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt;  IDが重複していない
+&amp;lt;h2 id=&amp;quot;contents1&amp;quot;&amp;gt;コンテンツ１&amp;lt;/h2&amp;gt; &amp;lt;h2 id=&amp;quot;contents2&amp;quot;&amp;gt;コンテンツ２&amp;lt;/h2&amp;gt;  悪い実装例 要素の閉じタグが無い
+&amp;lt;div&amp;gt;文章です &amp;lt;div&amp;gt;文章です2  要素の使い方が間違っている
+&amp;lt;ul&amp;gt; &amp;lt;a href=&amp;quot;#menu1&amp;quot;&amp;gt;&amp;lt;li&amp;gt;メニュー１&amp;lt;/li&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;quot;#menu2&amp;quot;&amp;gt;&amp;lt;li&amp;gt;メニュー２&amp;lt;/li&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;/ul&amp;gt;  IDが重複している
+&amp;lt;h2 id=&amp;quot;contents&amp;quot;&amp;gt;コンテンツ１&amp;lt;/h2&amp;gt; &amp;lt;h2 id=&amp;quot;contents&amp;quot;&amp;gt;コンテンツ２&amp;lt;/h2&amp;gt;  参考文献  WCAG 2.</description>
+    </item>
+    
+    <item>
+      <title>4.1.2 HTMLの要素や属性を正しい役割で使用する</title>
+      <link>https://openameba.github.io/a11y-guidelines/4/1/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/4/1/2/</guid>
+      <description> 4.1.2 HTMLの要素や属性を正しい役割で使用する リンクやボタンなどユーザーが操作可能な項目を作成するときに、本来リンクやボタンに使わない要素や属性を使用して記述すると、ブラウザやスクリーンリーダーなどで正しく操作できなくなる可能性がある。そのため、ユーザーが操作可能な項目は、正しい要素や属性を用いて記述する。
+具体例 見出しに見出しタグh1~h6要素を使っている    Good  見出しタグを正しく使用している場合。支援技術で、見出しを一覧化して表示する機能を使っても、全ての見出しを表示できるため、必要な情報を選んで読みやすい。      Bad  見出しタグを適切に使用していない場合。CSSでスタイリングしているため、仕上がりは見出しのように見えていたが、見出しタグを使っていないために、見出し一覧機能を使うと見出しとして表示されない。   テスト・チェック方法  コードレビュー  実装方法 悪い実装例 ボタンの項目なのに、spanタグを使って実装している
+&amp;lt;span class=&amp;quot;button&amp;quot;&amp;gt;登録する&amp;lt;/span&amp;gt;  良い実装例 buttonタグを使って実装している
+&amp;lt;button type=&amp;quot;button&amp;quot;&amp;gt;登録する&amp;lt;/button&amp;gt;  参考文献  WCAG 2.0対応項目：原文 4.1.2 Name, Role, Value: WCAG 2.0対応項目：和訳 4.1.2 名前 (name) ・役割 (role) 及び値 (value) F59: 達成基準 4.1.2 の失敗例 － スクリプトを用いて、コントロールに役割（role）を提供することなしに、HTML の div 要素又は span 要素をユーザインタフェースのコントロールにしている ARIA4: ユーザインターフェース コンポーネントの役割（role）を明らかにするため、WAI-ARIAロールを使用する  </description>
+    </item>
+    
+    <item>
+      <title>4.1.3 コンテンツの変更をユーザーに知らせる</title>
+      <link>https://openameba.github.io/a11y-guidelines/4/1/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/4/1/3/</guid>
+      <description> 4.1.3 コンテンツの変更をユーザーに知らせる この項目の目的は、フォーカスが与えられてないコンテンツの変更をより多くのユーザーが認識できるようにすることである。 これは、スクリーンリーダーでの音声読み上げでコンテンツを閲覧しているユーザーに特に効果がある。視覚的にステータスメッセージを読めない場合、必要なステータスに気づけず操作できなくなることがあるからだ。 コンテンツに適切な役割を割り当てることで、スクリーンリーダーなどの支援技術が変更を伝えてくれる。
+ ステータスメッセージとは コンテンツへのアクションの成功や結果、処理の進行状況やエラー情報など。 なお、コンテキストの変化はステータスではない。
+検索結果表示画面を例にした場合、
+ 検索結果が表示される  は、コンテキストの変化に関する情報になるため、ステータスメッセージには含まれない。
+ 検索実行のアクション後に表示される「検索中…」というテキスト 検索実行エラー時の「検索キーワードに記号は含めません」というエラーテキスト  などステータスのについて表示されるテキストはステータスメッセージに含まれる 
+レビュー・テスト方法  コードレビュー時、適切なライブリージョンが設定されていること コンテンツが変更されたときに、支援技術が適切に読み上げること  実装方法  変更を知らせたい要素にrole属性とWAI-ARIAの aria-live 属性を指定する その要素がhtmlの描画時に存在している（javascriptで動的に埋め込まれていない） JavaScriptで通知したいテキストをその要素に挿入している（ARIA19: エラーを特定するために、ARIA role=alert 又はライブリージョン(Live Regions)を使用する）  入力フォームでのエラー表示 良い実装例 &amp;lt;div id=&amp;quot;error&amp;quot; role=&amp;quot;alert&amp;quot; aria-live=&amp;quot;assertive&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;  悪い実装例 role=&amp;quot;alert&amp;quot; のみ指定されている。 role属性をサポートしていないブラウザがあるので、WAI-ARIAの aria-live=&amp;quot;assertive&amp;quot;も併用する。
+&amp;lt;div id=&amp;quot;error&amp;quot; role=&amp;quot;alert&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;  参考文献  Understanding Success Criterion 4.1.3: Status Messages 4.1.3 Parsing ARIA19: エラーを特定するために、ARIA role=alert 又はライブリージョン (Live Regions) を使用する  </description>
+    </item>
+    
+  </channel>
+</rss>

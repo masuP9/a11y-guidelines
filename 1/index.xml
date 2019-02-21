@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1s on Ameba Accessibility Guidelines</title>
+    <link>https://openameba.github.io/a11y-guidelines/1/</link>
+    <description>Recent content in 1s on Ameba Accessibility Guidelines</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://openameba.github.io/a11y-guidelines/1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1.1.1 画像に代替テキストを提供する</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/1/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/1/1/</guid>
+      <description>1.1.1 画像に代替テキストを提供する 装飾ではない画像やアイコンは、代替テキストで説明する。
+ 代替テキストとは 代替テキストとは、Webサイト内に含まれている画像や動画が何らかの原因で表示されなかったときや、スクリーンリーダーを使用するときに、画像の代わりに表示する文字・文章を指す。 
+代替テキストを提供する主な目的は、
+ スクリーンリーダーなどの支援技術を用いているユーザーにも、等しくコンテンツを提供する 通信エラー時など、画像を表示できない場合に、内容を説明する 検索botにコンテンツを提供し、広くコンテンツを見られるようにする  である。そのため、装飾目的の画像やアイコンには代替テキストは不要である。
+テキストで説明できれば、上記の方法などでコンテンツを変換・再利用することが可能になる。また、代替テキストは企画の段階で検討し、画像がなくても意味が伝わる構成となっていることを確認する。
+代替テキストの考え方について、altはつけるだけじゃなくて | 実践アクセシブルHTML 第一回という記事が参考になる。
+ 広告の代替テキストについて 既存の広告システムの場合、代替テキストを設定するために必要なテキストの入力欄が設けられていないことがある。可能であれば入稿ツールなどの広告システム、またはメディア側のシステム改修が望ましい。
+画像のみの広告、かつ代替テキストが画面に表示される状況（ネットワークエラー時や画像非表示時など）では、クライアントの意図しない見た目となる。広告画像の代わりに代替テキストの「[AD] クライアント名」と表示されてしまうことが契約上問題になることがある。
+そういった場合、最低限操作に支障をきたさないことを目的とし、「広告であること」を伝えることが望ましい。具体的には、代替テキストに「AD」「PR」と設定するなどが考えられる。 
+テスト・チェック方法  企画時、デザイナー・エンジニアによるレビュー 実装時、ESlintによるテスト  eslint-plugin-jsx-a11y/alt-text eslint-plugin-jsx-a11y/accessible-emoji eslint-plugin-jsx-a11y/iframe-has-title  コードレビュー  実装方法 &amp;lt;img&amp;gt; 要素の alt 属性に、画像を説明するテキストを設定する 悪い実装例 &amp;lt;img&amp;gt; 要素に alt 属性がない
+&amp;lt;img src=&amp;quot;ameblo.png&amp;quot; width=&amp;quot;100&amp;quot; height=&amp;quot;50&amp;quot;&amp;gt;   画像ファイル名が表示・読み上げられてしまう 特に、リンク要素の中にこういった画像があると、ユーザーはクリックで何が起きるかが想定できない 代替テキストが不要で装飾的な画像の場合には、空の alt 属性を設定する  良い実装例 &amp;lt;img&amp;gt; 要素の alt 属性に、画像を説明するテキストを設定する
+&amp;lt;img src=&amp;quot;ameblo.png&amp;quot; alt=&amp;quot;アメブロ&amp;quot; width=&amp;quot;100&amp;quot; height=&amp;quot;50&amp;quot;&amp;gt;  ラベルのないアイコンに、代替テキストを設定する 悪い実装例 ラベルや代替テキストがないアイコンの場合、アイコンの意味が理解できない</description>
+    </item>
+    
+    <item>
+      <title>1.2.1 収録済みの動画に代替コンテンツを提供する</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/2/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/2/1/</guid>
+      <description>1.2.1 収録済みの動画に代替コンテンツを提供する 収録済みの動画には、次のような代替コンテンツを提供する。
+ 字幕（キャプション） 音声解説 書き起こしテキスト  これにより、電車内や騒音の中などで音声を聞き取りにくい・聞こえない状況や、画面を見にくい・見えない状況でもコンテンツの内容を理解しやすくなる。そのため、視覚・聴覚障害のあるユーザーだけではなく、全てのユーザーに効果がある。
+また、テキストデータを提供することで、検索流入や流し読みができるなどの効果も期待できる。
+詳細 字幕について  話されている内容 誰が話しているか 拍手や笑い声など、コンテンツの理解に必要と思われる動作の説明  といった内容を含める。コンテンツの内容を説明するためのもので、必ずしも全ての動作・言動を書き起こす必要はない。
+音声解説について 必要な情報を音声で補足する。会話の切れ目に、重要かつ主音声では話されていないような動き・登場人物やシーンの変化・画面上の文字に関する情報を提供する。
+書き起こしテキストについて 視覚的なコンテキスト（文脈）・登場人物の動きや表情など、あらゆる視覚的な情報に対して完全な説明を提供する。また、ユーザーに何らかの操作が求められる場合、同等の機能（リンクテキストなど）を提供する。
+具体例 各ケースでの望ましい対応方法  音声のみのコンテンツ  書き起こしテキスト  音声のない映像のみの動画  書き起こしテキスト 音声解説  音声つきの動画  字幕（キャプション） 書き起こしテキスト 音声解説   詳細はガイドライン 1.2 を理解する | WCAG 2.0解説書が参考になる。
+対象となる動画の例 サービスで提供する動画全般が含まれる。次に一例をあげる。
+ サービス内のプロモーション動画 サービスの使い方を解説する動画  例外 次のような、サービス側で管理できないものは例外とする。
+ 動画広告：字幕の提供を推奨する ユーザーの投稿動画：本ガイドラインの対象外とする  ただし、本項目の影響の大きさを考慮し、どちらも投稿する際に
+ 代替コンテンツの入力 代替テキスト・キャプションの入力  を促し、入力テキストを代替コンテンツとして提供することが望ましい。
+テスト・チェック方法  企画時、ケースに応じた代替コンテンツ提供方法・原稿・提供タイミングについて検討する デザイン時、代替コンテンツの提供方法・提供タイミングについて検討する 実装・コードレビュー時、適切なタイミングで代替コンテンツが提供されることを確認する QAテスト時、代替コンテンツがコンテンツの内容の理解に十分であるかを確認する  実装方法 字幕 WebVTTなどのフォーマットや、動画に直接字幕テキストを掲載するなどして提供する。あるいは、字幕提供に対応している動画サービスを利用する。</description>
+    </item>
+    
+    <item>
+      <title>1.3.1 情報や関係性を明確にする</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/3/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/3/1/</guid>
+      <description> 1.3.1 情報や関係性を明確にする 提供する情報は、プログラムによる解釈が可能か、テキストで適切にラベリングや説明がされている。
+この項目の目的は、様々な環境で、提供している情報の構造を適切に伝えることである。たとえば表や見出しなどが、適切にマークアップされていない場合、スクリーンリーダーやクローラーからは、表や見出しと認識できない。
+情報を見た目だけで表現せず、マシンリーダブルに実装する（またはラベリングなどを用いる）ことで、どの環境にも適切に情報や関係性を伝えることができる。
+レビュー・テスト方法  企画時、デザイン時、デザイン・エンジニアによるレビュー マークアップ実装時、コードレビューによるチェック  実装方法 フォーム要素のラベルづけ 悪い実装例 視覚的にはフォームのコントロールに対応するラベルが提示されているが、要素を用いてラベルとコントロールの対応関係がコードでは示されていない。
+&amp;lt;form&amp;gt; 姓： &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;lastname&amp;quot;&amp;gt; &amp;lt;br&amp;gt; 名： &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;firstname&amp;quot;&amp;gt; &amp;lt;/form&amp;gt;  良い実装例 &amp;lt;label&amp;gt;要素を用いて、フォーム・コントロールとラベルが関連付けられている。
+&amp;lt;form&amp;gt; &amp;lt;label for=&amp;quot;lastname&amp;quot;&amp;gt;姓:&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;lastname&amp;quot; id=&amp;quot;lastname&amp;quot;&amp;gt; &amp;lt;br&amp;gt; &amp;lt;label for=&amp;quot;firstname&amp;quot;&amp;gt;名:&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;firstname&amp;quot; id=&amp;quot;firstname&amp;quot;&amp;gt; &amp;lt;/form&amp;gt;  参考文献  WCAG 2.0対応項目：原文 Guideline 1.3.1 Info and Relationships WCAG 2.0対応項目：和訳 ガイドライン 1.3.1 情報及び関係性 表の情報を提示するために、テーブルのマークアップを使用する テキストのラベルとフォーム・コントロールを関連付けるために、label要素を使用する リストに、ol要素、ul要素、dl要素を用いる 見出しを特定するために、h1要素～h6要素を使用する  </description>
+    </item>
+    
+    <item>
+      <title>1.3.2 意味のある順序でコンテンツを表現する</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/3/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/3/2/</guid>
+      <description> 1.3.2 意味のある順序でコンテンツを表現する スクリーンリーダーなどの支援技術を使うユーザーにも、正しい順序でコンテンツが読み上げられるように
+ DOMの順序と表示順序を一致させる デザインを実現するためのスペースをいれない  レビュー・テスト方法  企画時、デザイナー・エンジニアによるレビュー マークアップ実装時、コードレビューによるチェック  実装方法 文字間隔の調整 良い実装例 CSSのletter-spacingを使用して文字間を実現している。
+&amp;lt;h1&amp;gt;東京&amp;lt;/h1&amp;gt; &amp;lt;style&amp;gt; h1 { letter-spacing: 1em; } &amp;lt;/style&amp;gt;  悪い実装例 スペースを使用して単語内の文字間を実現している。
+&amp;lt;h1&amp;gt;東　京&amp;lt;/h1&amp;gt;  これだと、空白が開くことで1つの単語と認識されず、「東京」ではなく「ひがし　きょう」と読み上げられてしまう。
+参考文献  WCAG 2.0対応項目：原文 1.3.2 Meaningful Sequence WCAG 2.0対応項目：和訳 1.3.1 情報及び関係性 DOM の順序を表示順序と一致させる 達成基準 1.3.2 の失敗例 － 単語内の文字間を空けるために、スペースを使用している 単語内の文字間隔を調整するために、CSS の letter-spacing プロパティを使用する  </description>
+    </item>
+    
+    <item>
+      <title>1.3.3 感覚的な特徴だけで説明しない</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/3/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/3/3/</guid>
+      <description> 1.3.3 感覚的な特徴だけで説明しない コンテンツは感覚的な特徴（色や形、音や位置など）だけで説明しない。
+コンテンツの説明が感覚的な特徴だけだと、個人の感覚や端末に依存してしまい理解できないことがある。
+レビュー・テスト方法  デザイン時、モノクロ表示にして意味が伝わるか検討する 実装時、拡大・縮小を行っても意図が伝わる説明になっているかを検討する  具体例 悪い例 形や位置のみでコンテンツを特定している。この場合、スクリーンリーダーのユーザーにはどのボタンかが分からない。狭いウィンドウ幅で見た時や拡大表示したときに、表示位置が代わり、理解できなくなることもある。
+&amp;lt;p&amp;gt;右下のボタンを押して下さい。&amp;lt;/p&amp;gt;     Bad  フォームの必須項目を色だけで説明している。赤色が区別しづらい人にはどれが必須かわからない。     良い例 位置だけでなく、特定するための追加情報（この例だとボタンのラベル）が含まれている。
+&amp;lt;p&amp;gt;右下の「前へ戻る」ボタンを押して下さい。&amp;lt;/p&amp;gt;     Good  フォームの必須項目をテキストで補足し説明している。個人の感覚に依存せず、理解することが出来る。       Good  必須項目をテキストで記載し、太字や赤文字で装飾している。より直感的に多くのユーザーに強調して伝えることができる。     参考文献  WCAG 2.0対応項目：原文 Guideline 1.3.3 Sensory Characteristics WCAG 2.0対応項目：和訳 ガイドライン 1.3.3 感覚的な 特徴 理解すべき情報を感覚的にだけ伝えることのないように、テキストでもアイテムを特定する 形又は位置のみでコンテンツを特定している  </description>
+    </item>
+    
+    <item>
+      <title>1.3.5 入力目的を特定できる</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/3/5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/3/5/</guid>
+      <description>1.3.5 入力目的を特定できる 入力フォームを正確に認識・入力・確認することの難しいユーザーもいる。入力操作に慣れていないユーザーは、フォームで離脱することもある。 各入力フォームの目的をプログラムが解釈できれば、ユーザーの認知負荷を軽減する手段を提供できたり、ブラウザの自動補完を使うことができる。
+また、認知負荷を軽減したりユーザーの入力を簡単にするため、次のような対応が考えられる。
+ 適切なtype, autocomplete属性を用い、ブラウザに自動補完の手がかりを提供する 郵便番号を入力すると住所が自動補完されるなど、簡略できる項目の補助機能を提供する 配送先住所など、ユーザーが一度入力した項目を保存し次回の入力時に再利用できる機能を提供する  レビュー・テスト方法  デザイン時、各入力項目が自動補完の可能な形式になっていることを確認する  郵便番号や電話番号の入力要素が個々に分かれていると、自動補完できないなど  実装時、 入力要素に適切な属性を指定する コードレビュー時、属性を確認する テスト時、ChromeやSafariなど自動補完に対応したブラウザで、自動補完を確認する  実装方法 適切なtype属性、autocomplete属性を用い実装する。
+自動補完の良い設定例 適切なtype, autocomplete属性を設定している &amp;lt;label for=&amp;quot;form-name&amp;quot;&amp;gt;お名前&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;name&amp;quot; autocomplete=&amp;quot;name&amp;quot; id=&amp;quot;form-name&amp;quot; placeholder=&amp;quot;山田 太郎&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;form-tel&amp;quot;&amp;gt;電話番号&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;tel&amp;quot; name=&amp;quot;tel&amp;quot; autocomplete=&amp;quot;tel&amp;quot; id=&amp;quot;form-tel&amp;quot; placeholder=&amp;quot;00000000000&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;form-postal-code&amp;quot;&amp;gt;郵便番号&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;postal-code&amp;quot; autocomplete=&amp;quot;postal-code&amp;quot; id=&amp;quot;form-postal-code&amp;quot; placeholder=&amp;quot;0000000&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;form-address-level1&amp;quot;&amp;gt;都道府県&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;address-level1&amp;quot; autocomplete=&amp;quot;address-level1&amp;quot; id=&amp;quot;form-address-level1&amp;quot; placeholder=&amp;quot;東京都&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;form-address-level2&amp;quot;&amp;gt;市区町村&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;address-level2&amp;quot; autocomplete=&amp;quot;address-level2&amp;quot; id=&amp;quot;form-address-level2&amp;quot; placeholder=&amp;quot;渋谷区&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;form-address-line1&amp;quot;&amp;gt;番地など&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;address-line1&amp;quot; autocomplete=&amp;quot;address-line1&amp;quot; id=&amp;quot;form-address-line1&amp;quot; placeholder=&amp;quot;宇田川町49-1&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;form-address-line2&amp;quot;&amp;gt;アパート／マンション名など&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;address-line2&amp;quot; autocomplete=&amp;quot;address-line2&amp;quot; id=&amp;quot;form-address-line2&amp;quot; placeholder=&amp;quot;Abema Towers 1階&amp;quot;&amp;gt;  autocompleteを無効にしている 入力内容によっては、セキュリティやプライバシー上の懸念から、自動補完を敢えて無効にすることも検討する。代替手段として、配送先やクレジットカード番号などをユーザーアカウントに紐づけて保存しておく機能などが考えられる。</description>
+    </item>
+    
+    <item>
+      <title>1.4.1 色だけで伝えない</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/1/</guid>
+      <description> 1.4.1 色だけで伝えない 色だけで情報や動作を促すような表現はせず、テキストや記号でも伝えるようにする。
+具体例    Good  必須項目には赤色で【必須】と併記している。色以外でも伝えるが、色は直感的にわかりやすくするための補助的な要素として用いられている。       Good  グラフの構成要素を、色や要素だけでなくラベルで指し示している。       Bad  色のみで情報を伝えている。赤色が区別しづらい人にはどれが必須かわからない。     テスト・チェック方法  上記例の画像のような部分はないか 円グラフ、カレンダーのUIを作った時は要注意 色弱者向けのカラーチェック・コントラストシミュレーションを行う  Sketch向け：Stark Photoshop向け：Photoshopのメニューで「表示＞構成設定＞P型・D型」からシミュレーション（参考：色弱者向けのCUDソフトプルーフ（擬似変換）機能） Chrome拡張：ChromeLens   参考文献  WCAG 2.0対応項目：原文 Guideline 1.4.1 Use of Color: WCAG 2.0対応項目：和訳 色の使用:達成基準 1.4.1 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>1.4.10 リフローできる</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/10/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/10/</guid>
+      <description> 1.4.10 リフローできる 詳細 コンテンツを拡大して閲覧している場合、内容を読み込むためには左右にスクロールしなければならず、理解の妨げとなる。 そのため拡大（400%）しても適切にリフローされることが望ましい。
+ただし次のようなコンテンツは、2次元レイアウトが情報を伝える上で重要なため例外とする。
+ ビデオ 画像 地図 データテーブル コンテンツを編集するツールバーを提供するインターフェース  具体例  メディアクエリやCSSグリッドレイアウトを使用してレスポンシブウェブデザイン対応する コンテンツ内にレイアウトを切り替えるオプションを提供する ナビゲーションメニューは、拡大するとハンバーガーアイコンにかわる  良い実装例 メディアクエリやCSSグリッドレイアウトを使用してレスポンシブに対応する。
+悪い実装例  CSSを固定サイズで指定する コンテンツを position: absolute などで固定する 拡大・縮小を不可能にする指定をする  &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&amp;quot;&amp;gt;  テスト・チェック方法 画面を400%まで拡大した時、適切にリフローされているか次の項目を確認する。
+ 左右にスクロールせず閲覧できるか 覆い隠されてしまうコンテンツはないか  参考文献  Understanding Success Criterion 1.4.10 | Understanding WCAG 2.0  </description>
+    </item>
+    
+    <item>
+      <title>1.4.13 ホバーまたはフォーカスで表示されるコンテンツを制御できる</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/13/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/13/</guid>
+      <description> 1.4.13 ホバーまたはフォーカスで表示されるコンテンツを制御できる 画面を拡大して閲覧している際、追加コンテンツを知覚できなかったり、閲覧中のコンテンツが覆い隠されてしまう場合がある。 例えば、ツールチップやサブメニューなどをポインタホバーやフォーカスに応じて表示・非表示させるなど。
+このような場合には、次の要件を満たす必要がある。
+ 非表示にできる：追加コンテンツが入力エラーを伝えたり、他のコンテンツを覆い隠してしまわない限り、ホバーまたはフォーカスを移動することなく非表示にできる ホバーできる：コンテンツがポインタホバーによって表示される場合、ポインタを追加コンテンツ上で動かすことができる 表示が継続される：ホバーやフォーカスが解除される、ユーザーが非表示にする、またはその情報が無効になるまで表示される  例外：ユーザーエージェント（ブラウザなど）によって制御されている場合（HTMLのtitle属性を用いたツールチップなど）は除く
+これは、特にロービジョンのユーザーなどが拡大して表示している場合や、画面の小さな端末で閲覧する際に大きな影響がある。
+   Bad  追加コンテンツが他の要素を覆い隠してしまっている       Good  追加コンテンツが他の要素を阻害していない     -- テスト・チェック方法  追加コンテンツが表示されることで既存のコンテンツを覆い隠さないか 閉じるボタンなど、追加コンテンツを非表示にする操作方法が用意されているか  参考文献  Understanding Success Criterion 1.4.13：Content on Hover or Focus  </description>
+    </item>
+    
+    <item>
+      <title>1.4.2 音声を制御できるようにする</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/2/</guid>
+      <description> 1.4.2 音声を制御できるようにする 音声が自動的に再生される場合、その音声を一時停止、または停止できるようにする。
+詳細 スクリーンリーダーを使用している人は、同時に他の音声が再生されていると、読み上げ音声が聞き取りづらくなる。 また電車内でイヤホンを使用しているなど、環境に合わせて音声の制御をできるようにすべきである。
+そのため、なるべく音声を自動的に再生せず、使用する場合は
+ ユーザーが望む（と予想できる）場合に限り、音声を自動的に再生する 動画プレイヤーには音声の調整ボタン、ミュートボタンを搭載する  例外として、ユーザー自身が導入した外部プラグインなどは、そのプラグインに依存するため対象外とする。
+テスト・チェック方法 下記の段階で、音声が自動的に再生されないこと、再生されても制御できることを確認する。
+ 企画時 デザインレビュー 実装後  参考文献  WCAG 2.0対応項目：原文 Guideline 1.4.2 Audio Control: WCAG 2.0対応項目：和訳 音声の制御:達成基準 1.4.2 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>1.4.3 テキストや文字画像のコントラストを確保する</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/3/</guid>
+      <description> 1.4.3 テキストや文字画像のコントラストを確保する 詳細 テキストと背景の間に充分なコントラストを確保する。
+晴れの日に太陽光でディスプレイの文字が読みにくかったりなど、コントラストを確保していないことで視認性が悪化することは多々ある。こうした場合にコントラストを充分に確保することで、テキストの視認性を上げるだけでなく、中度のロービジョンの人に対してもコンテンツを提供できるようにする。
+具体的には、次の基準とする。
+ 大きな文字の場合、コントラスト比を3:1以上にする それ以外の場合、コントラスト比を4.5:1以上にする  ここで、「大きな文字」とは次の通り。
+ 18.5px以上の太字（14pt相当） 24px以上（18pt相当）  例外 次のような、テキストとして理解されることを目的としていないコンテンツは例外とする。
+ 写真に含まれる道路標識などの付随的な文字 企業のロゴやロゴタイプ 何らかの実装上の理由で隠している文字  レビュー・テスト方法 企画時 発生しうるコンテンツを、サービス提供側でコントロール可能なものかどうかで切り分ける。
+サービス提供側でコントロールできるコンテンツの場合は、デザインや実装段階に後述する方法でチェックする。ユーザーが投稿するコンテンツに対しても可能な限り基準が達成できるよう配慮するが、サービスの性質上コントロールできない場合などには適用しない。
+デザイン時 Sketch の場合は stark-contrast/stark-sketch-plugin というプラグインを用いて、テキストとその背景のコントラスト比を前述した基準に保つ。チェックのタイミングは適時とするが、少なくとも Git などのバージョン管理システムでコミットする時に漏れ無くチェックする。
+Stark の使い方は色盲・色弱のシミュレーションやコントラストをチェックするSketchプラグイン「Stark」が詳しい。
+サービスで用いる色はあらかじめ決められているケースが多く、サービス運用時の変更は難しいことが多い。そのため、新規サービスの開発時に、あらかじめコントラスト条件を満たすカラーパレット・組み合わせを一覧化しておくことが望ましい。
+コントラストのチェックには、色同士のコントラストを一括してチェックできる Contrast Grid というツールが便利である。
+実装時 デバッグ時に Chrome DevTools の Audits パネルで、Accessibility にチェックをして監査を実行することで、コントラスト比が保たれていないテキストを洗い出せる。
+また tota11y というツールを使うことでもチェックできる。tota11y は、Chrome Extension としても入手できる。
+これらを用いて実装時に適時チェックするものとし、少なくとも Git などのバージョン管理システムでコミットする時に漏れ無くチェックする。
+参考文献  コントラスト - Wikipedia コントラスト (最低限) : 達成基準 1.4.3 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>1.4.4 テキストサイズを拡大縮小できる</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/4/</guid>
+      <description>1.4.4 テキストサイズを拡大縮小できる ロービジョンのユーザーは、コンテンツ内の小さなテキストを読むことが困難である。そのため、テキストは画像拡大ソフトなどの支援技術を使用せずに、200％までサイズ変更できるようにする必要がある。またサイズ変更時に、コンテンツまたは機能を損なわず適切に表示されてなければならない。
+テキストのサイズが200％を越えると、テキストとコンテンツが重なるなど、かえって読みづらいレイアウトになってしまうことがある。そのため、それ以上の拡大が必要なユーザーは、拡大鏡などの支援技術を用いる方がより良い閲覧体験につながることが多い。
+また画像文字については、テキストと同じように拡大縮小できないため、可能な限りテキストにすることを推奨する。
+テスト・チェック方法  デザイン確認時、デザイナー・エンジニアがテキストを200％拡大時の挙動を確認する コードレビュー時、フォントサイズが相対指定になっていることを確認する 実装後、テキストサイズを拡大してコンテンツが適切に表示されているか確認する  具体例 入力要素のフォントサイズが16px未満のとき、ズームされる 入力時に画面を拡大して入力するユーザーもいるが、ブラウザ側が強制的に拡大表示することもある。
+iOSのブラウザでは、input要素のフォントサイズが16px未満の場合、input要素の入力時に入力欄がズームインされる。これはUX向上を目的としたブラウザの挙動のため、ハックを利用した実装などで防いではならない。
+参考：Quick Fix: Increase font-size to 16px to Prevent Input Zoom - UXcellence
+悪い例 ズームされないようにmetaタグに user-scalable=no を設定する。入力要素だけでなく、画面全体を拡大することができなくなる（詳細はこちら）。
+良い例  入力要素のフォントサイズは16px以上とする 拡大した時もコンテンツが適切に理解できるように作る  実装方法 フォントサイズの指定について 良い実装例 フォントサイズをem、またはremなどで相対指定している
+&amp;lt;style&amp;gt; html { font-size: 62.5%; } h1 { font-size: 2rem; } &amp;lt;/style&amp;gt; &amp;lt;html&amp;gt; ... &amp;lt;body&amp;gt; ... &amp;lt;h1&amp;gt;見出しテキスト&amp;lt;/h1&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  悪い実装例 フォントサイズをpxで絶対指定している
+&amp;lt;style&amp;gt; h1 { font-size: 20px; } &amp;lt;/style&amp;gt; &amp;lt;html&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>1.4.7 音声コンテンツを背景音で邪魔しない</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/7/</guid>
+      <description> 1.4.7 音声コンテンツを背景音で邪魔しない 詳細 発話を含む音声コンテンツを提供する場合、背景音で邪魔しないようにする。
+音声を聞き取りづらいユーザーは、発話と背景音（BGM）を区別しにくい。そのため次のいずれかを満たすことで、発話を含む音声コンテンツを聞き取りやすくする。
+ 音声コンテンツに背景音を含めない 背景音を消せるようにする 背景音の大きさを、発話より20デシベル以上小さくする。ただし背景音の発生頻度が低い場合を除く  例外 以下のように背景音が意味を持つ音声コンテンツは、例外とする。
+ 歌やラップのような音楽表現 音声CAPTCHAや音声ロゴ  レビュー・テスト方法 企画時 音声コンテンツが例外に含まれるかを確認する。含まれない場合は、作成段階で背景音が発話より20デシベル以上小さくなるように、作成者に依頼する。また、可能であれば発話と背景音を分割して保存する。これによって、音量を調節後の結合も可能になり、再生時のコントロールもできるようになる。
+実装時 音声コンテンツが発話と背景音で分割されている場合は、Web Audio を用いて同時に再生する実装とし、それぞれを中断できる UI を提供する。そうすることで、音声を聞き取りにくいユーザーに限らず、背景音を邪魔に感じるユーザーが消せるようになる。
+参考文献  WCAG 2.0対応項目：原文 Low or No Background Audio:Understanding SC 1.4.7 WCAG 2.0対応項目：和訳 小さな背景音、又は背景音なし:達成基準 1.4.7 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>1.4.8 テキストの可読性を担保する</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/8/</guid>
+      <description>1.4.8 テキストの可読性を担保する 本項目の目的は、レイアウトのためにテキストブロック（一文よりも長いテキスト）の可読性を下げないようにすることである。これにより認知・言語・学習障害のあるユーザーやロービジョンのユーザーにとっても、そのテキストを知覚できない、どこを読んでいるのかが分からなくなるなどの悪影響を軽減できる。
+テキストブロックの可読性を向上するため、下記を満たすこと。
+ ユーザーが、文字色と背景色を選択できる（詳細） 段落の幅を80文字以内（全角40文字以内）にする 均等割り付け（両端揃え）にしない 段落中の行送りは、1.5文字分以上（line-height: 1.5以上） 段落ごとの間隔は、行送りの1.5倍以上 テキストは、支援技術なしで200％まで拡大表示できる。そのとき、全画面表示で1行のテキストを読むときに横スクロールする必要がない  1は下記に詳述するが、それ以外の項目は、達成基準の意図が特に参考になる。
+  Good  段落中の行送りは1.5文字分以上、段落ごとの間隔は行送りの1.5倍以上を満たしている。   「ユーザーが、文字色と背景色を選択できる」の詳細 視覚障害または認知の障害のあるユーザーは、テキストブロックの文字色と背景色を選択できる必要がある。そうしたユーザーには、他の人には分かりづらそうな配色や、低いコントラストの方が読みやすい場合もある。色やテキストの外観を個別に制御できるかどうかが、そういったユーザーの読解力に大きく影響する。
+この基準を達成するために、文字色と背景色を特定の色覚パターン向けの配色に変更する機能の提供が考えられる。しかし、色の見え方は人により異なるため、すべてのパターンを網羅することは非常に難しい。このような機能の提供には、カラーピッカーで個別に色コードが指定できるなどの配慮が必要になる。
+そのため、1.4.1 色だけで伝えないと1.4.3 テキストや文字画像のコントラストを確保するを踏まえつつ、ブラウザなどのユーザーエージェントやOS標準のアクセシビリティ機能を用いて色を変更できるように実装することを推奨する。（G156: 一般に入手可能なユーザエージェントで、テキストのブロックの前景及び背景を変更できるウェブコンテンツ技術を使用する）
+達成方法は十分な達成方法 - 視覚的提示:達成基準 1.4.8 を理解するの要件 1が参考になる。
+テスト・チェック方法 デザイン・実装時に、次の項目を確認する。
+ OSのアクセシビリティ機能で色変更を行い、テキストブロックの必要な情報が欠損していない  macOS Sierra: Mac のアクセシビリティのオプションを設定する Windows 10 のアクセシビリティ機能 iPhone、iPad、iPod touch で「ディスプレイ調整」を使う Android ユーザー補助機能の概要  段落の幅が80文字以内（全角40文字以内）である 均等割り付け（両端揃え）の段落がない 段落中の行送りは、1.5文字分以上である（line-height: 1.5以上） 段落ごとの間隔は、行送りの1.5倍以上である（margin: 1em相当以上） テキストは、支援技術なしで200％まで拡大表示できる。さらに、画面の端で適宜折り返され、テキストを読むときに横スクロールをする必要がない  参考文献  Understanding Success Criterion 1.4.8 | Understanding WCAG 2.</description>
+    </item>
+    
+    <item>
+      <title>表示の向きを固定しない</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/3/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/3/4/</guid>
+      <description> 1.3.4 表示の向きを固定しない 詳細 ウェブページを閲覧する際、スマートフォンやタブレッドなどは縦向きで閲覧することが多いが、車椅子にスマートフォンを横向きで固定する人もいる。縦向き固定などで画面を作成すると、横向きで使う人が閲覧困難になるため、縦向き横向きどちらでも画面を正しく表示できるようにする。ただし、ピアノのアプリなど表示の向きを固定することが必要不可欠な場合は例外とする。
+具体例 悪い例 コンテンツの幅や高さを絶対値で指定している。幅や高さを固定してしまうと、傾けた時にはみ出して見えなくなる場合がある。
+.modal { width: 500px; height: 500px; }  &amp;lt;div class=&amp;quot;modal&amp;quot;&amp;gt; コンテンツの中身 &amp;lt;/div&amp;gt;  良い例 コンテンツの幅や高さを相対値で指定している。相対値であれば、傾けた時に画面の向きに合わせて適切に表示される。
+.modal { width: 80%; height: 80%; }  &amp;lt;div class=&amp;quot;modal&amp;quot;&amp;gt; コンテンツの中身 &amp;lt;/div&amp;gt;  テスト・チェック方法  デザイン時、縦向き横向き両方でデザインする 実装時、縦向き横向きで表示しても崩れないように相対値を用いる テスト時、デバイスの向きを変えても表示が崩れないこと  参考文献  Understanding Success Criterion 1.3.4: Orientation  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<base href="https://openameba.github.io/a11y-guidelinescontent/docs/">
+
+  <title>1.3.2 意味のある順序でコンテンツを表現する - Ameba Accessibility Guidelines</title>
+
+<link rel="icon" href="https://openameba.github.io/a11y-guidelinesfavicon.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/github.min.css">
+
+  <link rel="stylesheet" href="https://openameba.github.io/a11y-guidelines/css/detail.css">
+
+
+<meta property="og:description" content="">
+<meta property="og:image" content="https://openameba.github.io/a11y-guidelines/favicon.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://openameba.github.io/a11y-guidelines/1/3/2/">
+<meta property="og:site_name" content="Ameba Accessibility Guidelines">
+<meta property="og:title" content="1.3.2 意味のある順序でコンテンツを表現する">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ameba_official">
+<meta name="twitter:url" content="https://openameba.github.io/a11y-guidelines/1/3/2/">
+<meta name="twitter:title" content="1.3.2 意味のある順序でコンテンツを表現する">
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://openameba.github.io/a11y-guidelines/img/apple-touch-icon.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://openameba.github.io/a11y-guidelines/img/apple-touch-icon.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://openameba.github.io/a11y-guidelines/img/apple-touch-icon.png">
+<link rel="apple-touch-icon-precomposed" href="https://openameba.github.io/a11y-guidelines/img/apple-touch-icon.png">
+
+  </head>
+
+  <body>
+    <header class="Header">
+  
+    <p class="Container">
+      <a href="https://openameba.github.io/a11y-guidelines">
+        <img src="https://openameba.github.io/a11y-guidelines/img/logo.svg" class="Header__Logo" alt="Ameba" />
+        <span class="Header__title">Accessibility<br>Guidelines</span>
+      </a>
+    </p>
+  
+</header>
+
+
+    <main class="Main">
+      <div class="Container">
+        <article class="Article">
+          
+
+<h1 id="1-3-2-意味のある順序でコンテンツを表現する">1.3.2 意味のある順序でコンテンツを表現する</h1>
+
+<p>スクリーンリーダーなどの支援技術を使うユーザーにも、正しい順序でコンテンツが読み上げられるように</p>
+
+<ul>
+<li>DOMの順序と表示順序を一致させる</li>
+<li>デザインを実現するためのスペースをいれない</li>
+</ul>
+
+<h2 id="レビュー-テスト方法">レビュー・テスト方法</h2>
+
+<ul>
+<li>企画時、デザイナー・エンジニアによるレビュー</li>
+<li>マークアップ実装時、コードレビューによるチェック</li>
+</ul>
+
+<h2 id="実装方法">実装方法</h2>
+
+<h3 id="文字間隔の調整">文字間隔の調整</h3>
+
+<h4 id="良い実装例">良い実装例</h4>
+
+<p>CSSのletter-spacingを使用して文字間を実現している。</p>
+
+<pre><code class="language-html">&lt;h1&gt;東京&lt;/h1&gt;
+
+&lt;style&gt;
+h1 {
+  letter-spacing: 1em;
+}
+&lt;/style&gt;
+</code></pre>
+
+<h4 id="悪い実装例">悪い実装例</h4>
+
+<p>スペースを使用して単語内の文字間を実現している。</p>
+
+<pre><code class="language-html">&lt;h1&gt;東　京&lt;/h1&gt;
+</code></pre>
+
+<p>これだと、空白が開くことで1つの単語と認識されず、「東京」ではなく「ひがし　きょう」と読み上げられてしまう。</p>
+
+<h2 id="参考文献">参考文献</h2>
+
+<ul>
+<li>WCAG 2.0対応項目：原文 <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#content-structure-separation-sequence">1.3.2 Meaningful Sequence</a></li>
+<li>WCAG 2.0対応項目：和訳 <a href="https://waic.jp/docs/WCAG20/Overview.html#content-structure-separation-sequence">1.3.1 情報及び関係性</a></li>
+<li><a href="https://waic.jp/docs/WCAG-TECHS/C27.html">DOM の順序を表示順序と一致させる</a></li>
+<li><a href="https://waic.jp/docs/WCAG-TECHS/F32.html">達成基準 1.3.2 の失敗例 － 単語内の文字間を空けるために、スペースを使用している</a></li>
+<li><a href="https://waic.jp/docs/WCAG-TECHS/C8.html">単語内の文字間隔を調整するために、CSS の letter-spacing プロパティを使用する</a></li>
+</ul>
+
+        </article>
+      </div>
+    </main>
+
+    <footer class="Footer">
+  <div class="Container">
+    <small class="Footer__Credit">
+      Copyright © CyberAgent, Inc. All Rights Reserved.
+      <a href="https://www.cyberagent.co.jp/">
+        <img src="/a11y-guidelines/img/cyberagent.png" alt="CyberAgent" width="113" height="20">
+      </a>
+    </small>
+  </div>
+</footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const blocks = document.querySelectorAll('pre code');
+  for (const block of blocks) {
+    hljs.highlightBlock(block);
+  }
+});
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ameba Accessibility Guidelines</title>
+    <link>https://openameba.github.io/a11y-guidelines/</link>
+    <description>Recent content on Ameba Accessibility Guidelines</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://openameba.github.io/a11y-guidelines/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://openameba.github.io/a11y-guidelines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/</guid>
+      <description>概要 Ameba Accessibility Guidelinesは、Amebaのサービスを利用するユーザーの「誰もがいつでも迷わずコンテンツを楽しむことができる」ようにするための、制作指針集である。
+Amebaのサービスに携わるコンテンツや開発者は、高品質なサービスを提供するため、ガイドラインに沿った制作/開発を強く推奨する。
+対象となるサービス 本ガイドラインに準拠するサービス一覧。 各サービス毎に、アクセシビリティ改善プロジェクトの目的と対象とする範囲を定義する。
+ アメブロ 読書のお時間です  各項目の構成  達成基準を対応する目的と意義、対応すると得られるメリットなど テスト・チェック方法 実装方法 参考文献  目次 WCAG2.1に記載の項目のうち、Amebaブランドのサービスで準拠すべき項目。（A〜AAAは適合レベル）
+※WCAG2.1の項目は、現在追加作業中。
+1. 知覚可能 1.1 代替テキストを提供する  1.1.1 画像に代替テキストを提供するA  1.2 動画・音声に代替コンテンツを提供する  1.2.1 収録済みの動画に代替コンテンツを提供するA  1.3 様々な方法・環境で利用できる  1.3.1 情報や関係性を明確にするA 1.3.2 意味のある順序でコンテンツを表現するA 1.3.3 感覚的な特徴だけで説明しないA 1.3.4 表示の向きを固定しないAA 1.3.5 入力目的を特定できるAAA  1.4 判別できる（見やすく、聞きやすく、区別しやすく）  1.4.1 色だけで伝えないA 1.4.2 音声を制御できるようにするA 1.4.3 テキストや文字画像のコントラストを確保するAA 1.4.4 テキストサイズを拡大縮小できるAA 1.4.7 音声コンテンツを背景音で邪魔しないAAA 1.4.8 テキストの可読性を担保するAAA 1.4.10 リフローできるAA 1.4.13 ホバーまたはフォーカスで表示されるコンテンツを制御できるAA  2.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://openameba.github.io/a11y-guidelines/src/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/src/</guid>
+      <description>実装方法集 アクセシビリティに配慮した実装コードサンプル
+理解を深めることを目的とするため、現状、HTML, CSS, JavaScriptに偏っている。 そのためコードサンプルでは、簡潔に要点のみを記述しており、コードをそのまま流用されることは想定していない。</description>
+    </item>
+    
+    <item>
+      <title>1.1.1 画像に代替テキストを提供する</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/1/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/1/1/</guid>
+      <description>1.1.1 画像に代替テキストを提供する 装飾ではない画像やアイコンは、代替テキストで説明する。
+ 代替テキストとは 代替テキストとは、Webサイト内に含まれている画像や動画が何らかの原因で表示されなかったときや、スクリーンリーダーを使用するときに、画像の代わりに表示する文字・文章を指す。 
+代替テキストを提供する主な目的は、
+ スクリーンリーダーなどの支援技術を用いているユーザーにも、等しくコンテンツを提供する 通信エラー時など、画像を表示できない場合に、内容を説明する 検索botにコンテンツを提供し、広くコンテンツを見られるようにする  である。そのため、装飾目的の画像やアイコンには代替テキストは不要である。
+テキストで説明できれば、上記の方法などでコンテンツを変換・再利用することが可能になる。また、代替テキストは企画の段階で検討し、画像がなくても意味が伝わる構成となっていることを確認する。
+代替テキストの考え方について、altはつけるだけじゃなくて | 実践アクセシブルHTML 第一回という記事が参考になる。
+ 広告の代替テキストについて 既存の広告システムの場合、代替テキストを設定するために必要なテキストの入力欄が設けられていないことがある。可能であれば入稿ツールなどの広告システム、またはメディア側のシステム改修が望ましい。
+画像のみの広告、かつ代替テキストが画面に表示される状況（ネットワークエラー時や画像非表示時など）では、クライアントの意図しない見た目となる。広告画像の代わりに代替テキストの「[AD] クライアント名」と表示されてしまうことが契約上問題になることがある。
+そういった場合、最低限操作に支障をきたさないことを目的とし、「広告であること」を伝えることが望ましい。具体的には、代替テキストに「AD」「PR」と設定するなどが考えられる。 
+テスト・チェック方法  企画時、デザイナー・エンジニアによるレビュー 実装時、ESlintによるテスト  eslint-plugin-jsx-a11y/alt-text eslint-plugin-jsx-a11y/accessible-emoji eslint-plugin-jsx-a11y/iframe-has-title  コードレビュー  実装方法 &amp;lt;img&amp;gt; 要素の alt 属性に、画像を説明するテキストを設定する 悪い実装例 &amp;lt;img&amp;gt; 要素に alt 属性がない
+&amp;lt;img src=&amp;quot;ameblo.png&amp;quot; width=&amp;quot;100&amp;quot; height=&amp;quot;50&amp;quot;&amp;gt;   画像ファイル名が表示・読み上げられてしまう 特に、リンク要素の中にこういった画像があると、ユーザーはクリックで何が起きるかが想定できない 代替テキストが不要で装飾的な画像の場合には、空の alt 属性を設定する  良い実装例 &amp;lt;img&amp;gt; 要素の alt 属性に、画像を説明するテキストを設定する
+&amp;lt;img src=&amp;quot;ameblo.png&amp;quot; alt=&amp;quot;アメブロ&amp;quot; width=&amp;quot;100&amp;quot; height=&amp;quot;50&amp;quot;&amp;gt;  ラベルのないアイコンに、代替テキストを設定する 悪い実装例 ラベルや代替テキストがないアイコンの場合、アイコンの意味が理解できない</description>
+    </item>
+    
+    <item>
+      <title>1.2.1 収録済みの動画に代替コンテンツを提供する</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/2/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/2/1/</guid>
+      <description>1.2.1 収録済みの動画に代替コンテンツを提供する 収録済みの動画には、次のような代替コンテンツを提供する。
+ 字幕（キャプション） 音声解説 書き起こしテキスト  これにより、電車内や騒音の中などで音声を聞き取りにくい・聞こえない状況や、画面を見にくい・見えない状況でもコンテンツの内容を理解しやすくなる。そのため、視覚・聴覚障害のあるユーザーだけではなく、全てのユーザーに効果がある。
+また、テキストデータを提供することで、検索流入や流し読みができるなどの効果も期待できる。
+詳細 字幕について  話されている内容 誰が話しているか 拍手や笑い声など、コンテンツの理解に必要と思われる動作の説明  といった内容を含める。コンテンツの内容を説明するためのもので、必ずしも全ての動作・言動を書き起こす必要はない。
+音声解説について 必要な情報を音声で補足する。会話の切れ目に、重要かつ主音声では話されていないような動き・登場人物やシーンの変化・画面上の文字に関する情報を提供する。
+書き起こしテキストについて 視覚的なコンテキスト（文脈）・登場人物の動きや表情など、あらゆる視覚的な情報に対して完全な説明を提供する。また、ユーザーに何らかの操作が求められる場合、同等の機能（リンクテキストなど）を提供する。
+具体例 各ケースでの望ましい対応方法  音声のみのコンテンツ  書き起こしテキスト  音声のない映像のみの動画  書き起こしテキスト 音声解説  音声つきの動画  字幕（キャプション） 書き起こしテキスト 音声解説   詳細はガイドライン 1.2 を理解する | WCAG 2.0解説書が参考になる。
+対象となる動画の例 サービスで提供する動画全般が含まれる。次に一例をあげる。
+ サービス内のプロモーション動画 サービスの使い方を解説する動画  例外 次のような、サービス側で管理できないものは例外とする。
+ 動画広告：字幕の提供を推奨する ユーザーの投稿動画：本ガイドラインの対象外とする  ただし、本項目の影響の大きさを考慮し、どちらも投稿する際に
+ 代替コンテンツの入力 代替テキスト・キャプションの入力  を促し、入力テキストを代替コンテンツとして提供することが望ましい。
+テスト・チェック方法  企画時、ケースに応じた代替コンテンツ提供方法・原稿・提供タイミングについて検討する デザイン時、代替コンテンツの提供方法・提供タイミングについて検討する 実装・コードレビュー時、適切なタイミングで代替コンテンツが提供されることを確認する QAテスト時、代替コンテンツがコンテンツの内容の理解に十分であるかを確認する  実装方法 字幕 WebVTTなどのフォーマットや、動画に直接字幕テキストを掲載するなどして提供する。あるいは、字幕提供に対応している動画サービスを利用する。</description>
+    </item>
+    
+    <item>
+      <title>1.3.1 情報や関係性を明確にする</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/3/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/3/1/</guid>
+      <description> 1.3.1 情報や関係性を明確にする 提供する情報は、プログラムによる解釈が可能か、テキストで適切にラベリングや説明がされている。
+この項目の目的は、様々な環境で、提供している情報の構造を適切に伝えることである。たとえば表や見出しなどが、適切にマークアップされていない場合、スクリーンリーダーやクローラーからは、表や見出しと認識できない。
+情報を見た目だけで表現せず、マシンリーダブルに実装する（またはラベリングなどを用いる）ことで、どの環境にも適切に情報や関係性を伝えることができる。
+レビュー・テスト方法  企画時、デザイン時、デザイン・エンジニアによるレビュー マークアップ実装時、コードレビューによるチェック  実装方法 フォーム要素のラベルづけ 悪い実装例 視覚的にはフォームのコントロールに対応するラベルが提示されているが、要素を用いてラベルとコントロールの対応関係がコードでは示されていない。
+&amp;lt;form&amp;gt; 姓： &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;lastname&amp;quot;&amp;gt; &amp;lt;br&amp;gt; 名： &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;firstname&amp;quot;&amp;gt; &amp;lt;/form&amp;gt;  良い実装例 &amp;lt;label&amp;gt;要素を用いて、フォーム・コントロールとラベルが関連付けられている。
+&amp;lt;form&amp;gt; &amp;lt;label for=&amp;quot;lastname&amp;quot;&amp;gt;姓:&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;lastname&amp;quot; id=&amp;quot;lastname&amp;quot;&amp;gt; &amp;lt;br&amp;gt; &amp;lt;label for=&amp;quot;firstname&amp;quot;&amp;gt;名:&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;firstname&amp;quot; id=&amp;quot;firstname&amp;quot;&amp;gt; &amp;lt;/form&amp;gt;  参考文献  WCAG 2.0対応項目：原文 Guideline 1.3.1 Info and Relationships WCAG 2.0対応項目：和訳 ガイドライン 1.3.1 情報及び関係性 表の情報を提示するために、テーブルのマークアップを使用する テキストのラベルとフォーム・コントロールを関連付けるために、label要素を使用する リストに、ol要素、ul要素、dl要素を用いる 見出しを特定するために、h1要素～h6要素を使用する  </description>
+    </item>
+    
+    <item>
+      <title>1.3.2 意味のある順序でコンテンツを表現する</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/3/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/3/2/</guid>
+      <description> 1.3.2 意味のある順序でコンテンツを表現する スクリーンリーダーなどの支援技術を使うユーザーにも、正しい順序でコンテンツが読み上げられるように
+ DOMの順序と表示順序を一致させる デザインを実現するためのスペースをいれない  レビュー・テスト方法  企画時、デザイナー・エンジニアによるレビュー マークアップ実装時、コードレビューによるチェック  実装方法 文字間隔の調整 良い実装例 CSSのletter-spacingを使用して文字間を実現している。
+&amp;lt;h1&amp;gt;東京&amp;lt;/h1&amp;gt; &amp;lt;style&amp;gt; h1 { letter-spacing: 1em; } &amp;lt;/style&amp;gt;  悪い実装例 スペースを使用して単語内の文字間を実現している。
+&amp;lt;h1&amp;gt;東　京&amp;lt;/h1&amp;gt;  これだと、空白が開くことで1つの単語と認識されず、「東京」ではなく「ひがし　きょう」と読み上げられてしまう。
+参考文献  WCAG 2.0対応項目：原文 1.3.2 Meaningful Sequence WCAG 2.0対応項目：和訳 1.3.1 情報及び関係性 DOM の順序を表示順序と一致させる 達成基準 1.3.2 の失敗例 － 単語内の文字間を空けるために、スペースを使用している 単語内の文字間隔を調整するために、CSS の letter-spacing プロパティを使用する  </description>
+    </item>
+    
+    <item>
+      <title>1.3.3 感覚的な特徴だけで説明しない</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/3/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/3/3/</guid>
+      <description> 1.3.3 感覚的な特徴だけで説明しない コンテンツは感覚的な特徴（色や形、音や位置など）だけで説明しない。
+コンテンツの説明が感覚的な特徴だけだと、個人の感覚や端末に依存してしまい理解できないことがある。
+レビュー・テスト方法  デザイン時、モノクロ表示にして意味が伝わるか検討する 実装時、拡大・縮小を行っても意図が伝わる説明になっているかを検討する  具体例 悪い例 形や位置のみでコンテンツを特定している。この場合、スクリーンリーダーのユーザーにはどのボタンかが分からない。狭いウィンドウ幅で見た時や拡大表示したときに、表示位置が代わり、理解できなくなることもある。
+&amp;lt;p&amp;gt;右下のボタンを押して下さい。&amp;lt;/p&amp;gt;     Bad  フォームの必須項目を色だけで説明している。赤色が区別しづらい人にはどれが必須かわからない。     良い例 位置だけでなく、特定するための追加情報（この例だとボタンのラベル）が含まれている。
+&amp;lt;p&amp;gt;右下の「前へ戻る」ボタンを押して下さい。&amp;lt;/p&amp;gt;     Good  フォームの必須項目をテキストで補足し説明している。個人の感覚に依存せず、理解することが出来る。       Good  必須項目をテキストで記載し、太字や赤文字で装飾している。より直感的に多くのユーザーに強調して伝えることができる。     参考文献  WCAG 2.0対応項目：原文 Guideline 1.3.3 Sensory Characteristics WCAG 2.0対応項目：和訳 ガイドライン 1.3.3 感覚的な 特徴 理解すべき情報を感覚的にだけ伝えることのないように、テキストでもアイテムを特定する 形又は位置のみでコンテンツを特定している  </description>
+    </item>
+    
+    <item>
+      <title>1.3.5 入力目的を特定できる</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/3/5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/3/5/</guid>
+      <description>1.3.5 入力目的を特定できる 入力フォームを正確に認識・入力・確認することの難しいユーザーもいる。入力操作に慣れていないユーザーは、フォームで離脱することもある。 各入力フォームの目的をプログラムが解釈できれば、ユーザーの認知負荷を軽減する手段を提供できたり、ブラウザの自動補完を使うことができる。
+また、認知負荷を軽減したりユーザーの入力を簡単にするため、次のような対応が考えられる。
+ 適切なtype, autocomplete属性を用い、ブラウザに自動補完の手がかりを提供する 郵便番号を入力すると住所が自動補完されるなど、簡略できる項目の補助機能を提供する 配送先住所など、ユーザーが一度入力した項目を保存し次回の入力時に再利用できる機能を提供する  レビュー・テスト方法  デザイン時、各入力項目が自動補完の可能な形式になっていることを確認する  郵便番号や電話番号の入力要素が個々に分かれていると、自動補完できないなど  実装時、 入力要素に適切な属性を指定する コードレビュー時、属性を確認する テスト時、ChromeやSafariなど自動補完に対応したブラウザで、自動補完を確認する  実装方法 適切なtype属性、autocomplete属性を用い実装する。
+自動補完の良い設定例 適切なtype, autocomplete属性を設定している &amp;lt;label for=&amp;quot;form-name&amp;quot;&amp;gt;お名前&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;name&amp;quot; autocomplete=&amp;quot;name&amp;quot; id=&amp;quot;form-name&amp;quot; placeholder=&amp;quot;山田 太郎&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;form-tel&amp;quot;&amp;gt;電話番号&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;tel&amp;quot; name=&amp;quot;tel&amp;quot; autocomplete=&amp;quot;tel&amp;quot; id=&amp;quot;form-tel&amp;quot; placeholder=&amp;quot;00000000000&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;form-postal-code&amp;quot;&amp;gt;郵便番号&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;postal-code&amp;quot; autocomplete=&amp;quot;postal-code&amp;quot; id=&amp;quot;form-postal-code&amp;quot; placeholder=&amp;quot;0000000&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;form-address-level1&amp;quot;&amp;gt;都道府県&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;address-level1&amp;quot; autocomplete=&amp;quot;address-level1&amp;quot; id=&amp;quot;form-address-level1&amp;quot; placeholder=&amp;quot;東京都&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;form-address-level2&amp;quot;&amp;gt;市区町村&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;address-level2&amp;quot; autocomplete=&amp;quot;address-level2&amp;quot; id=&amp;quot;form-address-level2&amp;quot; placeholder=&amp;quot;渋谷区&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;form-address-line1&amp;quot;&amp;gt;番地など&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;address-line1&amp;quot; autocomplete=&amp;quot;address-line1&amp;quot; id=&amp;quot;form-address-line1&amp;quot; placeholder=&amp;quot;宇田川町49-1&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;form-address-line2&amp;quot;&amp;gt;アパート／マンション名など&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;address-line2&amp;quot; autocomplete=&amp;quot;address-line2&amp;quot; id=&amp;quot;form-address-line2&amp;quot; placeholder=&amp;quot;Abema Towers 1階&amp;quot;&amp;gt;  autocompleteを無効にしている 入力内容によっては、セキュリティやプライバシー上の懸念から、自動補完を敢えて無効にすることも検討する。代替手段として、配送先やクレジットカード番号などをユーザーアカウントに紐づけて保存しておく機能などが考えられる。</description>
+    </item>
+    
+    <item>
+      <title>1.4.1 色だけで伝えない</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/1/</guid>
+      <description> 1.4.1 色だけで伝えない 色だけで情報や動作を促すような表現はせず、テキストや記号でも伝えるようにする。
+具体例    Good  必須項目には赤色で【必須】と併記している。色以外でも伝えるが、色は直感的にわかりやすくするための補助的な要素として用いられている。       Good  グラフの構成要素を、色や要素だけでなくラベルで指し示している。       Bad  色のみで情報を伝えている。赤色が区別しづらい人にはどれが必須かわからない。     テスト・チェック方法  上記例の画像のような部分はないか 円グラフ、カレンダーのUIを作った時は要注意 色弱者向けのカラーチェック・コントラストシミュレーションを行う  Sketch向け：Stark Photoshop向け：Photoshopのメニューで「表示＞構成設定＞P型・D型」からシミュレーション（参考：色弱者向けのCUDソフトプルーフ（擬似変換）機能） Chrome拡張：ChromeLens   参考文献  WCAG 2.0対応項目：原文 Guideline 1.4.1 Use of Color: WCAG 2.0対応項目：和訳 色の使用:達成基準 1.4.1 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>1.4.10 リフローできる</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/10/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/10/</guid>
+      <description> 1.4.10 リフローできる 詳細 コンテンツを拡大して閲覧している場合、内容を読み込むためには左右にスクロールしなければならず、理解の妨げとなる。 そのため拡大（400%）しても適切にリフローされることが望ましい。
+ただし次のようなコンテンツは、2次元レイアウトが情報を伝える上で重要なため例外とする。
+ ビデオ 画像 地図 データテーブル コンテンツを編集するツールバーを提供するインターフェース  具体例  メディアクエリやCSSグリッドレイアウトを使用してレスポンシブウェブデザイン対応する コンテンツ内にレイアウトを切り替えるオプションを提供する ナビゲーションメニューは、拡大するとハンバーガーアイコンにかわる  良い実装例 メディアクエリやCSSグリッドレイアウトを使用してレスポンシブに対応する。
+悪い実装例  CSSを固定サイズで指定する コンテンツを position: absolute などで固定する 拡大・縮小を不可能にする指定をする  &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&amp;quot;&amp;gt;  テスト・チェック方法 画面を400%まで拡大した時、適切にリフローされているか次の項目を確認する。
+ 左右にスクロールせず閲覧できるか 覆い隠されてしまうコンテンツはないか  参考文献  Understanding Success Criterion 1.4.10 | Understanding WCAG 2.0  </description>
+    </item>
+    
+    <item>
+      <title>1.4.13 ホバーまたはフォーカスで表示されるコンテンツを制御できる</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/13/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/13/</guid>
+      <description> 1.4.13 ホバーまたはフォーカスで表示されるコンテンツを制御できる 画面を拡大して閲覧している際、追加コンテンツを知覚できなかったり、閲覧中のコンテンツが覆い隠されてしまう場合がある。 例えば、ツールチップやサブメニューなどをポインタホバーやフォーカスに応じて表示・非表示させるなど。
+このような場合には、次の要件を満たす必要がある。
+ 非表示にできる：追加コンテンツが入力エラーを伝えたり、他のコンテンツを覆い隠してしまわない限り、ホバーまたはフォーカスを移動することなく非表示にできる ホバーできる：コンテンツがポインタホバーによって表示される場合、ポインタを追加コンテンツ上で動かすことができる 表示が継続される：ホバーやフォーカスが解除される、ユーザーが非表示にする、またはその情報が無効になるまで表示される  例外：ユーザーエージェント（ブラウザなど）によって制御されている場合（HTMLのtitle属性を用いたツールチップなど）は除く
+これは、特にロービジョンのユーザーなどが拡大して表示している場合や、画面の小さな端末で閲覧する際に大きな影響がある。
+   Bad  追加コンテンツが他の要素を覆い隠してしまっている       Good  追加コンテンツが他の要素を阻害していない     -- テスト・チェック方法  追加コンテンツが表示されることで既存のコンテンツを覆い隠さないか 閉じるボタンなど、追加コンテンツを非表示にする操作方法が用意されているか  参考文献  Understanding Success Criterion 1.4.13：Content on Hover or Focus  </description>
+    </item>
+    
+    <item>
+      <title>1.4.2 音声を制御できるようにする</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/2/</guid>
+      <description> 1.4.2 音声を制御できるようにする 音声が自動的に再生される場合、その音声を一時停止、または停止できるようにする。
+詳細 スクリーンリーダーを使用している人は、同時に他の音声が再生されていると、読み上げ音声が聞き取りづらくなる。 また電車内でイヤホンを使用しているなど、環境に合わせて音声の制御をできるようにすべきである。
+そのため、なるべく音声を自動的に再生せず、使用する場合は
+ ユーザーが望む（と予想できる）場合に限り、音声を自動的に再生する 動画プレイヤーには音声の調整ボタン、ミュートボタンを搭載する  例外として、ユーザー自身が導入した外部プラグインなどは、そのプラグインに依存するため対象外とする。
+テスト・チェック方法 下記の段階で、音声が自動的に再生されないこと、再生されても制御できることを確認する。
+ 企画時 デザインレビュー 実装後  参考文献  WCAG 2.0対応項目：原文 Guideline 1.4.2 Audio Control: WCAG 2.0対応項目：和訳 音声の制御:達成基準 1.4.2 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>1.4.3 テキストや文字画像のコントラストを確保する</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/3/</guid>
+      <description> 1.4.3 テキストや文字画像のコントラストを確保する 詳細 テキストと背景の間に充分なコントラストを確保する。
+晴れの日に太陽光でディスプレイの文字が読みにくかったりなど、コントラストを確保していないことで視認性が悪化することは多々ある。こうした場合にコントラストを充分に確保することで、テキストの視認性を上げるだけでなく、中度のロービジョンの人に対してもコンテンツを提供できるようにする。
+具体的には、次の基準とする。
+ 大きな文字の場合、コントラスト比を3:1以上にする それ以外の場合、コントラスト比を4.5:1以上にする  ここで、「大きな文字」とは次の通り。
+ 18.5px以上の太字（14pt相当） 24px以上（18pt相当）  例外 次のような、テキストとして理解されることを目的としていないコンテンツは例外とする。
+ 写真に含まれる道路標識などの付随的な文字 企業のロゴやロゴタイプ 何らかの実装上の理由で隠している文字  レビュー・テスト方法 企画時 発生しうるコンテンツを、サービス提供側でコントロール可能なものかどうかで切り分ける。
+サービス提供側でコントロールできるコンテンツの場合は、デザインや実装段階に後述する方法でチェックする。ユーザーが投稿するコンテンツに対しても可能な限り基準が達成できるよう配慮するが、サービスの性質上コントロールできない場合などには適用しない。
+デザイン時 Sketch の場合は stark-contrast/stark-sketch-plugin というプラグインを用いて、テキストとその背景のコントラスト比を前述した基準に保つ。チェックのタイミングは適時とするが、少なくとも Git などのバージョン管理システムでコミットする時に漏れ無くチェックする。
+Stark の使い方は色盲・色弱のシミュレーションやコントラストをチェックするSketchプラグイン「Stark」が詳しい。
+サービスで用いる色はあらかじめ決められているケースが多く、サービス運用時の変更は難しいことが多い。そのため、新規サービスの開発時に、あらかじめコントラスト条件を満たすカラーパレット・組み合わせを一覧化しておくことが望ましい。
+コントラストのチェックには、色同士のコントラストを一括してチェックできる Contrast Grid というツールが便利である。
+実装時 デバッグ時に Chrome DevTools の Audits パネルで、Accessibility にチェックをして監査を実行することで、コントラスト比が保たれていないテキストを洗い出せる。
+また tota11y というツールを使うことでもチェックできる。tota11y は、Chrome Extension としても入手できる。
+これらを用いて実装時に適時チェックするものとし、少なくとも Git などのバージョン管理システムでコミットする時に漏れ無くチェックする。
+参考文献  コントラスト - Wikipedia コントラスト (最低限) : 達成基準 1.4.3 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>1.4.4 テキストサイズを拡大縮小できる</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/4/</guid>
+      <description>1.4.4 テキストサイズを拡大縮小できる ロービジョンのユーザーは、コンテンツ内の小さなテキストを読むことが困難である。そのため、テキストは画像拡大ソフトなどの支援技術を使用せずに、200％までサイズ変更できるようにする必要がある。またサイズ変更時に、コンテンツまたは機能を損なわず適切に表示されてなければならない。
+テキストのサイズが200％を越えると、テキストとコンテンツが重なるなど、かえって読みづらいレイアウトになってしまうことがある。そのため、それ以上の拡大が必要なユーザーは、拡大鏡などの支援技術を用いる方がより良い閲覧体験につながることが多い。
+また画像文字については、テキストと同じように拡大縮小できないため、可能な限りテキストにすることを推奨する。
+テスト・チェック方法  デザイン確認時、デザイナー・エンジニアがテキストを200％拡大時の挙動を確認する コードレビュー時、フォントサイズが相対指定になっていることを確認する 実装後、テキストサイズを拡大してコンテンツが適切に表示されているか確認する  具体例 入力要素のフォントサイズが16px未満のとき、ズームされる 入力時に画面を拡大して入力するユーザーもいるが、ブラウザ側が強制的に拡大表示することもある。
+iOSのブラウザでは、input要素のフォントサイズが16px未満の場合、input要素の入力時に入力欄がズームインされる。これはUX向上を目的としたブラウザの挙動のため、ハックを利用した実装などで防いではならない。
+参考：Quick Fix: Increase font-size to 16px to Prevent Input Zoom - UXcellence
+悪い例 ズームされないようにmetaタグに user-scalable=no を設定する。入力要素だけでなく、画面全体を拡大することができなくなる（詳細はこちら）。
+良い例  入力要素のフォントサイズは16px以上とする 拡大した時もコンテンツが適切に理解できるように作る  実装方法 フォントサイズの指定について 良い実装例 フォントサイズをem、またはremなどで相対指定している
+&amp;lt;style&amp;gt; html { font-size: 62.5%; } h1 { font-size: 2rem; } &amp;lt;/style&amp;gt; &amp;lt;html&amp;gt; ... &amp;lt;body&amp;gt; ... &amp;lt;h1&amp;gt;見出しテキスト&amp;lt;/h1&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  悪い実装例 フォントサイズをpxで絶対指定している
+&amp;lt;style&amp;gt; h1 { font-size: 20px; } &amp;lt;/style&amp;gt; &amp;lt;html&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>1.4.7 音声コンテンツを背景音で邪魔しない</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/7/</guid>
+      <description> 1.4.7 音声コンテンツを背景音で邪魔しない 詳細 発話を含む音声コンテンツを提供する場合、背景音で邪魔しないようにする。
+音声を聞き取りづらいユーザーは、発話と背景音（BGM）を区別しにくい。そのため次のいずれかを満たすことで、発話を含む音声コンテンツを聞き取りやすくする。
+ 音声コンテンツに背景音を含めない 背景音を消せるようにする 背景音の大きさを、発話より20デシベル以上小さくする。ただし背景音の発生頻度が低い場合を除く  例外 以下のように背景音が意味を持つ音声コンテンツは、例外とする。
+ 歌やラップのような音楽表現 音声CAPTCHAや音声ロゴ  レビュー・テスト方法 企画時 音声コンテンツが例外に含まれるかを確認する。含まれない場合は、作成段階で背景音が発話より20デシベル以上小さくなるように、作成者に依頼する。また、可能であれば発話と背景音を分割して保存する。これによって、音量を調節後の結合も可能になり、再生時のコントロールもできるようになる。
+実装時 音声コンテンツが発話と背景音で分割されている場合は、Web Audio を用いて同時に再生する実装とし、それぞれを中断できる UI を提供する。そうすることで、音声を聞き取りにくいユーザーに限らず、背景音を邪魔に感じるユーザーが消せるようになる。
+参考文献  WCAG 2.0対応項目：原文 Low or No Background Audio:Understanding SC 1.4.7 WCAG 2.0対応項目：和訳 小さな背景音、又は背景音なし:達成基準 1.4.7 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>1.4.8 テキストの可読性を担保する</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/4/8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/4/8/</guid>
+      <description>1.4.8 テキストの可読性を担保する 本項目の目的は、レイアウトのためにテキストブロック（一文よりも長いテキスト）の可読性を下げないようにすることである。これにより認知・言語・学習障害のあるユーザーやロービジョンのユーザーにとっても、そのテキストを知覚できない、どこを読んでいるのかが分からなくなるなどの悪影響を軽減できる。
+テキストブロックの可読性を向上するため、下記を満たすこと。
+ ユーザーが、文字色と背景色を選択できる（詳細） 段落の幅を80文字以内（全角40文字以内）にする 均等割り付け（両端揃え）にしない 段落中の行送りは、1.5文字分以上（line-height: 1.5以上） 段落ごとの間隔は、行送りの1.5倍以上 テキストは、支援技術なしで200％まで拡大表示できる。そのとき、全画面表示で1行のテキストを読むときに横スクロールする必要がない  1は下記に詳述するが、それ以外の項目は、達成基準の意図が特に参考になる。
+  Good  段落中の行送りは1.5文字分以上、段落ごとの間隔は行送りの1.5倍以上を満たしている。   「ユーザーが、文字色と背景色を選択できる」の詳細 視覚障害または認知の障害のあるユーザーは、テキストブロックの文字色と背景色を選択できる必要がある。そうしたユーザーには、他の人には分かりづらそうな配色や、低いコントラストの方が読みやすい場合もある。色やテキストの外観を個別に制御できるかどうかが、そういったユーザーの読解力に大きく影響する。
+この基準を達成するために、文字色と背景色を特定の色覚パターン向けの配色に変更する機能の提供が考えられる。しかし、色の見え方は人により異なるため、すべてのパターンを網羅することは非常に難しい。このような機能の提供には、カラーピッカーで個別に色コードが指定できるなどの配慮が必要になる。
+そのため、1.4.1 色だけで伝えないと1.4.3 テキストや文字画像のコントラストを確保するを踏まえつつ、ブラウザなどのユーザーエージェントやOS標準のアクセシビリティ機能を用いて色を変更できるように実装することを推奨する。（G156: 一般に入手可能なユーザエージェントで、テキストのブロックの前景及び背景を変更できるウェブコンテンツ技術を使用する）
+達成方法は十分な達成方法 - 視覚的提示:達成基準 1.4.8 を理解するの要件 1が参考になる。
+テスト・チェック方法 デザイン・実装時に、次の項目を確認する。
+ OSのアクセシビリティ機能で色変更を行い、テキストブロックの必要な情報が欠損していない  macOS Sierra: Mac のアクセシビリティのオプションを設定する Windows 10 のアクセシビリティ機能 iPhone、iPad、iPod touch で「ディスプレイ調整」を使う Android ユーザー補助機能の概要  段落の幅が80文字以内（全角40文字以内）である 均等割り付け（両端揃え）の段落がない 段落中の行送りは、1.5文字分以上である（line-height: 1.5以上） 段落ごとの間隔は、行送りの1.5倍以上である（margin: 1em相当以上） テキストは、支援技術なしで200％まで拡大表示できる。さらに、画面の端で適宜折り返され、テキストを読むときに横スクロールをする必要がない  参考文献  Understanding Success Criterion 1.4.8 | Understanding WCAG 2.</description>
+    </item>
+    
+    <item>
+      <title>2.1.1 キーボード、タッチデバイスで操作できる</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/1/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/1/1/</guid>
+      <description> 2.1.1 キーボード、タッチデバイスで操作できる キーボードショートカット・マウスホーバー・タッチのフリックのみなど、特定の操作に依存した機能では、他のデバイスから使用できないことが多くある。キーボード・マウス・タッチそれぞれの操作を担保し、様々なデバイスの操作をカバーする。
+ただし、次のような場合は例外とする。
+ キーボードのショートカットなどで操作が代替可能など、別の手段で操作できれば問題なし 手書き入力など、マウスカーソルの移動や、タッチしながらの移動などに依存している機能は除外する  レビュー・テスト方法  ESlintによる自動チェック  eslint-plugin-jsx-a11y/interactive-supports-focus eslint-plugin-jsx-a11y/mouse-events-have-key-events  コードレビューによるチェック QAテスト（マウスと同じ操作がキーボードでできるかをテストする）  実装方法 良い実装例 フォーカスを受け取れる要素の使用、tabindex 属性の付与、focus 擬似クラスの併用などを行なっている。
+&amp;lt;button type=&amp;quot;button&amp;quot; onclick=&amp;quot;...&amp;quot; tabindex=&amp;quot;1&amp;quot;&amp;gt; content... &amp;lt;/button&amp;gt;  悪い実装例 フォーカスを受け取れない要素を利用したコンテンツの出し分けなどをしている。
+&amp;lt;div onclick=&amp;quot;...&amp;quot;&amp;gt; content... &amp;lt;/div&amp;gt;  参考文献  WCAG 2.0対応項目：原文 Guideline 2.1.1 Keyboard WCAG 2.0対応項目：和訳 Guideline 1.1 Text Alternatives HTMLのフォームコントロール、及びリンクを使用する キーボード : 達成基準 2.1.1 を理解する | WCAG 2.0解説書  </description>
+    </item>
+    
+    <item>
+      <title>2.1.2 キーボード操作を可能にする</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/1/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/1/2/</guid>
+      <description>2.1.2 キーボード操作を可能にする キーボード操作可能な場合、フォーカスが外せなくなると、ユーザーが操作出来なくなってしまうため、Tabキーでフォーカスの移動を行えるようにする。
+モーダルダイアログを開いた場合など、マウスクリックでの非表示だけでなくESCキーでも閉じられるようにする。また、モーダルダイアログ内でのTabキーを使用した移動については、モーダルの最下部までフォーカスした後、次のフォーカスはモーダルの先頭になるように制御する。
+ただし、次のような場合は例外とする。
+ユーザー自身が導入した外部プラグインなどは、そのプラグインに依存するため対象外とする。
+レビュー・テスト方法  コードレビューによるチェック QAテスト（キーボードで操作できるかをテストする）  実装方法 良い実装例 例：モーダルウィンドウの場合
+Tabキーでボタンにフォーカスが移動出来る。 ESCキーでモーダルウィンドウをクローズ出来る。
+&amp;lt;button type=&amp;quot;button&amp;quot; onclick=&amp;quot;onClick()&amp;quot;&amp;gt;ボタン&amp;lt;/button&amp;gt;  function onClick() { modal.close(); } // キーボードイベントの実装 function onKeyup (e) { // ESCキー押下 if (e.keyCode === 27) { modal.close(); } }  悪い実装例 例：モーダルウィンドウの場合
+Tabキーを使えないようにし、クリックでのみクローズ出来る。
+&amp;lt;button type=&amp;quot;button&amp;quot; onclick=&amp;quot;onClick()&amp;quot; tabindex=&amp;quot;-1&amp;quot;&amp;gt;ボタン&amp;lt;/button&amp;gt;  function onClick() { modal.close(); }  参考文献  WCAG 2.0対応項目：原文 Guideline 2.1.2 No Keyboard Trap WCAG 2.0対応項目：和訳 Guideline 2.1.2 キーボードトラップなし 利用者が一つのフォーマットの中に閉じ込められてしまうように、複数のコンテンツ・フォーマットを組み合わせている キーボードトラップなし : 達成基準 2.</description>
+    </item>
+    
+    <item>
+      <title>2.1.4 文字キーのショートカットを操作できる</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/1/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/1/4/</guid>
+      <description> 2.1.4 文字キーのショートカットを操作できる 詳細 文字（大文字と小文字を含む）、句読点・数字または記号のみを使用したコンテンツに、キーボードショートカットが実装されている場合は次のいずれかを満たす必要がある。
+ 解除：ショートカットキーを解除できる 再割り当て：1つまたは複数の印刷不可能なキーボード文字（CtrlやAltなど）を別の文字に割り振りできる フォーカス時のみ有効：そのコンポーネントにフォーカスがある場合にのみショートカットキーが有効になる  一例として、音声入力で操作しているユーザーの場合、単一キーがショートカットキーとして登録されていると、音声認識ソフトが間違って解釈・実行してしまう恐れがある。
+具体例 文字キーを押すと検索ボックスにフォーカスが当たる実装の場合、例えばShift + Hキーにショートカットキーを設定しているユーザーは、正しく操作できない可能性がある。
+テスト・チェック方法  文字キーのショートカットがある場合、上記の条件を満たす実装になっているか  参考文献  Understanding Success Criterion 2.1.4：Character Key Shortcuts  </description>
+    </item>
+    
+    <item>
+      <title>2.2.1 コンテンツに制限時間を設けない。</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/2/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/2/1/</guid>
+      <description> 2.2.1 コンテンツに制限時間を設けない 長い時間を必要とするユーザーや状況があるため、コンテンツに制限時間を設けない。
+ただし、次のような場合は例外とする。
+ 制限時間を設ける場合は、20時間以上とする 解除、調整できる：制限時間のあるコンテンツを利用する前に、ユーザーがその制限時間を解除、または時間の調整をすることができる 延長や時間切れとなる20秒以上前にユーザーへ警告し、簡単な操作で時間を延長できる  参考文献  7.2.2.1 調整可能な制限時間に関する達成基準 W３C　タイミング調整可能  </description>
+    </item>
+    
+    <item>
+      <title>2.2.2 動く、自動更新するコンテンツに配慮する</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/2/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/2/2/</guid>
+      <description> 2.2.2 動く、自動更新するコンテンツに配慮する 動きのあるコンテンツはユーザーの注意を妨げることがあるため、ユーザーが一時停止、停止、非表示できるようにする。
+この項目を満たせないと、ユーザーがウェブページ全体を利用できない恐れがある。
+詳細 動きや点滅がある情報  自動再生される 5秒以上続く 他のコンテンツと並行して表示される  全てを満たすとき、ユーザーが非表示・一時停止・停止できるようにする。
+自動更新するコンテンツ 他のコンテンツと並行して表示されるとき、ユーザーが非表示・一時停止・停止・更新頻度の調整ができるようにする。
+例外  5秒未満の場合 そのコンテンツや機能にとって必要不可欠な場合 動画広告の場合  レビュー・テスト方法 企画・デザイン・実装・QAテスト時の確認
+参考文献  達成基準 2.2.2 を理解する | WCAG 2.0解説書  </description>
+    </item>
+    
+    <item>
+      <title>2.2.4 コンテンツの更新を中断または延期できる</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/2/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/2/4/</guid>
+      <description> 2.2.4 コンテンツの更新を中断または延期できる ユーザーの操作に関係なく突然コンテンツの内容を切り替えると、ユーザーの注意が散漫になり適切にコンテンツを読み進められない恐れがある。ポップアップやコンテンツの自動更新など、ユーザーの操作に割り込みをする場合は、ユーザーがコンテンツの更新を中断・延期可能にする。
+ただし、次のような緊急を要するものに関しては例外とする。
+ ユーザーのデータが、損失する可能性がある場合の警告 緊急警報メッセージ  一例としてポップアップ機能が挙げられる。ポップアップの表示中は他の操作を抑制されるため、キーボード操作などでも非表示に設定できることが望ましい。
+   Good  ポップアップを閉じて、コンテンツの更新を延期できる。       Bad  コンテンツの更新以外に選択肢がなく、ポップアップを閉じることができない。ユーザーはこれまでの操作を中断することになり、正しく操作を完了できなくなる恐れがある。     テスト・チェック方法  リダイレクトや自動更新するコンテンツが含まれるページの場合、ユーザーが停止、延期などを設定できる機能があるか。 ポップアップ機能をキーボード操作で非表示にしたり、｢後で確認する｣のような確認を延期する操作ができるか。  実装方法 悪い実装例 metaタグのhttp-equiv属性を利用した、一定時間後に自動的に更新、リダイレクトさせる仕組み。リダイレクト設定が必要な場合は、可能な限りサーバーサイドで行うのが望ましい。
+&amp;lt;meta http-equiv=&amp;quot;refresh&amp;quot; content=&amp;quot;5; url=http://www.example.com/&amp;quot; /&amp;gt;  参考文献  WCAG 2.0対応項目：原文2.2.4 Interruptions WCAG 2.0対応項目：和訳2.2.4 割り込み WCAG 2.0 達成方法集：和訳F40: 達成基準 2.2.1 及び 達成基準 2.2.4 の失敗例  </description>
+    </item>
+    
+    <item>
+      <title>2.3.1 画面の点滅を防止する</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/3/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/3/1/</guid>
+      <description> 2.3.1 画面の点滅を防止する 1秒間に3回以上、点滅させない。
+詳細 1秒に3回以上点滅・チラつきが発生すると、閲覧環境やユーザーによっては発作を引き起こす恐れがある。アニメーションや動画など、サービスに掲載する全てのコンテンツで、1秒に3回以上の点滅をさせてはいけない。
+テスト・チェック方法 コンテンツを作成時に、1秒間に3回以上の点滅がないかを確認する。
+参考文献  3回の閃光、又は閾値以下:達成基準 2.3.1 を理解する 光過敏性発作  </description>
+    </item>
+    
+    <item>
+      <title>2.3.3 インタラクションによるアニメーションを無効にできる</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/3/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/3/3/</guid>
+      <description> 2.3.3 インタラクションによるアニメーションを無効にできる ユーザーのインタラクション（スクロールやクリックなど）によってアニメーションが発生すると、ユーザーがめまい・吐き気・偏頭痛などを起こす可能性がある。 そのため、コンテンツの機能や内容に必要不可欠でない限り、ユーザーが無効にできるようにする。
+2.2.2 動く、自動更新するコンテンツに配慮する も参照。 2.2.2では、自動で再生・更新されるコンテンツについて記載している。 2.3.3ではユーザーの操作に応じたアニメーションが対象となる。
+ 必要不可欠なアニメーション 必要不可欠なアニメーションとは、そのものがないと機能しなくなるものを指す。
+カルーセル、ローディングアニメーションなど 
+詳細 達成方法  ユーザーの操作で発生するアニメーションがある場合、アニメーションを消す・軽減できる設定を用意する（推奨） アニメーションなしのサイトに移動する選択肢を提供する  テスト・チェック方法  ユーザーの操作で発生するアニメーションがある場合、アニメーションを消す・軽減できる設定を用意する  参考文献  Understanding Success Criterion 2.3.3: Animation from Interactions UIデザインへのアプローチ Part 2: インタラクションとアニメーション（UXデザイン入門シリーズ）| アドビUX道場 #UXDojo  </description>
+    </item>
+    
+    <item>
+      <title>2.4.1 重複する情報をスキップできるようにする</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/4/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/4/1/</guid>
+      <description>2.4.1 重複する情報をスキップできるようにする ページの中で繰り返される項目を簡単にスキップできるようにする
+詳細 サイドバーやメニューなど、ページ内で繰り返す項目が多くある場合、
+ Tabキーを何度も押す スクロールを何度も行う  など、項目を移動するのに操作が多くなってしまう。そのため、
+ 見出しを適切に作成する Ariaランドマークを設定する コンテンツに直接移動するリンク（スキップリンク）を各ページの先頭に追加する  などを設定し、移動を簡単にできるようにする。
+レビュー・テスト方法  企画時、デザイナー・エンジニアによるレビュー 実装時、Chromeプラグイン「Landmarks」によるチェック コードレビュー  実装方法 良い実装例 コンテンツに見出しがある
+&amp;lt;section&amp;gt; &amp;lt;h2&amp;gt;本文タイトル&amp;lt;/h2&amp;gt; &amp;lt;div&amp;gt;ここから本文...&amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt; &amp;lt;aside&amp;gt; &amp;lt;h2&amp;gt;ユーザ一覧&amp;lt;/h2&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;ユーザーA&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;ユーザーB&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;ユーザーC&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/aside&amp;gt; &amp;lt;aside&amp;gt; &amp;lt;h2&amp;gt;記事一覧&amp;lt;/h2&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;注目記事１つ目&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;注目記事２つ目&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;注目記事３つ目&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/aside&amp;gt; &amp;lt;footer&amp;gt; &amp;lt;h2&amp;gt;このサイトについて&amp;lt;/h2&amp;gt; &amp;lt;div&amp;gt;お問い合わせはこちら...&amp;lt;/div&amp;gt; &amp;lt;/footer&amp;gt;  スキップリンクを用意している
+&amp;lt;nav&amp;gt; &amp;lt;h2&amp;gt;メニュー&amp;lt;/h2&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#main&amp;quot;&amp;gt;本文&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#userList&amp;quot;&amp;gt;ユーザ一覧&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#entryList&amp;quot;&amp;gt;記事一覧&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#footer&amp;quot;&amp;gt;お問い合わせ&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;nav&amp;gt; &amp;lt;section id=&amp;quot;#main&amp;quot;&amp;gt; &amp;lt;h2&amp;gt;本文タイトル&amp;lt;/h2&amp;gt; &amp;lt;div&amp;gt;ここから本文...&amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt; &amp;lt;aside id=&amp;quot;userList&amp;quot;&amp;gt; &amp;lt;h2&amp;gt;ユーザ一覧&amp;lt;/h2&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;ユーザーA&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;ユーザーB&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;ユーザーC&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/aside&amp;gt; &amp;lt;aside id=&amp;quot;entryList&amp;quot;&amp;gt; &amp;lt;h2&amp;gt;記事一覧&amp;lt;/h2&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;注目記事１つ目&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;注目記事２つ目&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;注目記事３つ目&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/aside&amp;gt; &amp;lt;footer id=&amp;quot;footer&amp;quot;&amp;gt; &amp;lt;h2&amp;gt;このサイトについて&amp;lt;/h2&amp;gt; &amp;lt;div&amp;gt;お問い合わせはこちら.</description>
+    </item>
+    
+    <item>
+      <title>2.4.10 各セクションに見出しをつける</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/4/10/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/4/10/</guid>
+      <description> 2.4.10 各セクションに見出しをつける 文章をトピックやテーマごとにセクションで分け、それぞれに適切な見出しをつける。すると、ユーザーはセクションの見出しから内容を推測し、目的のコンテンツへ素早く移動できるようになる。
+また、支援技術などを利用すると、見出しから見出しへジャンプできるようになる。
+テスト・チェック方法 見出し要素の &amp;lt;h1&amp;gt;~&amp;lt;h6&amp;gt;タグを適切に使用しているか。
+それぞれのセクションに適切な見出しがあるかどうかは、次のタイミングで確認する
+ 企画時、デザイナー・エンジニアによるレビュー コードレビュー  実装方法 悪い実装 CSSなどで視覚的に見出しと判断できるような装飾を行っていたとしても、プログラム上からは解釈が出来ないためこの方法は不十分である。
+&amp;lt;div&amp;gt;見出し１&amp;lt;/div&amp;gt; &amp;lt;section&amp;gt; &amp;lt;div&amp;gt;本文タイトル&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;ここから本文...&amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt; &amp;lt;section&amp;gt; &amp;lt;div&amp;gt;本文タイトル&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;ここから本文...&amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt;  参考文献  WCAG 2.0対応項目：原文 2.4.10 Section Headings WCAG 2.0対応項目：和訳 2.4.10 セクション見出し G141: 見出しを用いてウェブページを構造化する  </description>
+    </item>
+    
+    <item>
+      <title>2.4.2 ページの主題がわかるタイトルを設定する</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/4/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/4/2/</guid>
+      <description> 2.4.2 ページの主題がわかるタイトルを設定する 適切なタイトルを他のページと重複することなく定義する。
+具体例    Good  他のページと重複しない適切なタイトル       Bad  同一タイトルの別ページが複数存在する     テスト・チェック方法 他のページと同じタイトルがないかチェックし、同じタイトルであった場合、タイトルやページ構成を見直す。
+ ページの更新時に、ページタイトルが内容に合致しているか確認する ページ一覧シートなどに、サービス内のタイトルを俯瞰できるシートを用意する  実装方法 HTMLの &amp;lt;title&amp;gt; 要素に、指定のページタイトルを漏れなく記述する。
+参考文献  7.2.4.2 ページタイトルに関する達成基準  </description>
+    </item>
+    
+    <item>
+      <title>2.4.3 適切なフォーカス順序にする</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/4/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/4/3/</guid>
+      <description> 2.4.3 適切なフォーカス順序にする 詳細 キー操作でフォーカス可能な要素は、適切な順序でフォーカスできるようにする。
+フォーカスの順序が適切でないと、内容の理解や操作性に影響を受けるものがある。視覚的な順序だけではなく、スクリーンリーダーの読み上げ時やキー操作時にも、適切な順序で操作できるようにする。
+たとえば、CSSやJavaScriptを用いてDOMの順序とは異なるレイアウトにしているコンテンツは特に注意が必要である。
+レビュー・テスト方法 実装時、コードレビュー時、QAテスト時に下記の項目を確認する。
+ コンテンツの表示順序と、フォーカスされる順序が一致している 一致していない場合、それが意図的なものかを確認する  参考文献  WCAG 2.0対応項目：原文 2.4.3 Focus Order WCAG 2.0対応項目：和訳 2.4.3 フォーカス順序 G59: コンテンツ内の順番及び関係に従った順序で、インタラクティブな要素を配置する | WCAG 2.0 達成方法集 WAI-ARIA 対応のアクセシブルなタブ UI を React で実装する ::ハブろぐ  </description>
+    </item>
+    
+    <item>
+      <title>2.4.4 リンクの目的を理解できるようにする</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/4/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/4/4/</guid>
+      <description> 2.4.4 リンクの目的を理解できるようにする リンクテキストや前後の文脈から、リンク先や目的がわかるようにする。リンクテキストだけを一覧化して表示する支援技術を考慮し、リンクテキストのみでリンク先の目的がわかると更に良い。
+詳細 この項目の目的は、ユーザーがリンク先へ行きたいかどうかを判断しやすくすることである。理解しやすいリンクテキストにすることで、一度リンク先のページに行き、また戻ってくるという無駄な操作を減らすことができる。
+リンクテキストのみでリンク先の目的を理解できることが一番良いが、冗長になる場合などは、リンクテキストの前方に説明を加える形でも良い。ベストプラクティスは、同じリンク先のリンクには一貫した説明があることである（関連：3.2.4 一貫した識別性を持たせる）。
+2.4.9リンクの目的（リンクのみ）では、前後の文脈を含めずに、リンクのみでリンクの目的を理解できることが望ましいとされている。
+特に恩恵を受けるケース  関心のないリンクテキストをスキップできるようになり、一度リンク先に遷移して戻ってくるという無駄な操作をしなくて済む スクリーンリーダーなどの支援技術を利用しているユーザーは、リンクのみを一覧化してコンテンツを読み飛ばして使うことがある クローラーはリンク先とリンクテキストのキーワードを関連づけて評価を行うことがある  具体例 新着記事一覧モジュールに付随する「もっと見る」というテキストリンク。次のような対応方法が考えられる
+ 「新着記事をもっと見る」など、目的語を含める 補足する文章を近くに置く（リンクより前が望ましい） aria-label属性で、スクリーンリーダーによる読み上げを補足する     Good  モジュールの下部に、「人気記事をもっと見る」のように、モジュール名を含めた続きを促すリンクテキストがある構成。モジュールが複数あっても、リンクを一覧化した時にどのモジュールの続きを促すリンクなのかが把握できる。       Bad  モジュールの下部に「もっと見る」というリンクテキストがある構成。こういったモジュールが複数ある場合、リンクを一覧化すると、「もっと見る」が並び、ユーザーは何の続きが表示されるリンクなのかがわからない。     テスト・チェック方法 下記の段階で、リンクテキストが適切か確認する
+ 企画時 デザインレビュー 実装後  参考文献  WCAG 2.0対応項目：原文 Guideline 2.4.4 Link Purpose (In Context): WCAG 2.0対応項目：和訳 リンクの目的 (コンテキスト内) 達成基準 2.4.4 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>2.4.5 コンテンツへの到達手段を複数用意する</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/4/5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/4/5/</guid>
+      <description> 2.4.5 コンテンツへの到達手段を複数用意する コンテンツを見つける手段を複数提供することで、ユーザーが、使いやすい手段を選択できるようにする。
+具体例として、次のような方法がある
+ メニュー グローバルナビゲーション パンくず サイトマップ 検索フォーム  テスト・チェック方法  企画時、デザイナー・エンジニアによるレビュー 複数の手段で遷移可能か  参考文献  WCAG 2.0対応項目：原文2.4.5 Multiple Ways WCAG 2.0対応項目：和訳2.4.5 複数の手段 WCAG 2.0 解説書：複数の手段 達成基準 2.4.5 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>2.4.6 見出しやラベルは、主題または目的を説明する</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/4/6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/4/6/</guid>
+      <description> 2.4.6 見出しやラベルは、主題または目的を説明する 見出しやラベルは次のような内容を、簡潔に説明する。
+ ウェブページ内の情報 コンテンツの構成内容  これにより、ウェブページの理解をより早く、目的のコンテンツへ素早く到達しやすくなる。
+また、表記揺れを防ぐために、ワーディングリストの作成・利用を推奨する。
+テスト・チェック方法  企画時、開発メンバーによるレビュー  参考文献  WCAG 2.0対応項目：原文2.4.6 Headings and Labels WCAG 2.0対応項目：和訳2.4.6 見出し及びラベル  </description>
+    </item>
+    
+    <item>
+      <title>2.4.7 フォーカスを見えるようにする</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/4/7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/4/7/</guid>
+      <description>2.4.7 フォーカスを見えるようにする フォーカス可能な項目の枠線を非表示にした場合、フォーカスされていることがユーザーに伝わらない。また、キーボードで操作するユーザーにとっては、フォーカスの場所がわからないため操作できない。そのため、フォーカスされた場合、その項目の周りに枠線を表示させるなど、視覚的にフォーカスを見えるようにする。
+   Good  フォーカスしている要素に緑の太枠を表示している。入力中の要素が何かがわかりやすい。       Bad  フォーカスしている要素の枠を非表示にしている。入力中の要素を見失いやすい。     テスト・チェック方法  デザインレビュー時にフォーカスが見えるデザインを確認する コードレビュー時にフォーカスが表示されるコードであることを確認する テスト時にキーボードで操作し、フォーカスが見えることを確認する  実装方法 悪い実装例 &amp;lt;style&amp;gt; // reset.cssなどで要素全体のoutlineが消されている button { outline: none; } &amp;lt;/style&amp;gt; &amp;lt;form&amp;gt; &amp;lt;label&amp;gt;reset.cssで枠線が消されたままの例&amp;lt;/label&amp;gt; &amp;lt;button&amp;gt;送信&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt;  良い実装例 &amp;lt;style&amp;gt; .button1 { outline: 1; } .button2 { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2d8c3c; } &amp;lt;/style&amp;gt; &amp;lt;form&amp;gt; &amp;lt;label&amp;gt;ブラウザ標準の枠線を表示&amp;lt;/label&amp;gt; &amp;lt;button class=&amp;quot;button1&amp;quot;&amp;gt;送信&amp;lt;/button&amp;gt; &amp;lt;label&amp;gt;独自スタイルの枠線を表示&amp;lt;/label&amp;gt; &amp;lt;button class=&amp;quot;button2&amp;quot;&amp;gt;送信&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt;  参考文献  WCAG 2.</description>
+    </item>
+    
+    <item>
+      <title>2.4.8 現在位置を確認することができる</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/4/8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/4/8/</guid>
+      <description> 2.4.8 現在位置を確認することができる ユーザーはウェブページを回遊してると、自分がどこにいるかわからなくなることがある。しかし、現在位置がわかれば、ユーザーは見つけたい情報をストレスなくアクセスできるようになる。
+具体例  パンくずリストの提供 サイトマップへのリンクを用意する ナビゲーションバー内で現在位置を示す
+  良い例 ナビゲーション内で、次の条件を満たしている。
+ 現在位置が示されている 下線や形を変化させるなど、色だけで説明していない     Good  ナビゲーション内で、現在位置とそれ以外の項目を、色だけでなく下線と形を用いて説明している。       Bad  ナビゲーション内で現在位置を示しているが、現在位置とそれ以外の項目を、色のみで説明している。この色の区別がつかないユーザーにはどれが現在位置かわからない。     テスト・チェック方法 各工程において、次を確認する。
+ 具体例のようなコンポーネントがページ内に存在する そのコンポーネント上で「現在位置」が示されているかを確認する  視覚的な確認 実装後、スクリーンリーダーで現在位置を確認   参考文献  WCAG 2.0対応項目：原文 2.4.8 Location WCAG 2.0対応項目：和訳 2.4.8 現在位置 G65: パンくずリストを提供する G63: サイトマップを提供する G128: ナビゲーションバー内で現在位置を示す  </description>
+    </item>
+    
+    <item>
+      <title>2.5.1 ポインタジェスチャを必須としない</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/5/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/5/1/</guid>
+      <description> 2.5.1 ポインタジェスチャを必須としない 詳細 複数の指を使ったピンチ操作や、ドラッグアンドドロップのような軌跡を必須とする操作を除き、コンテンツを操作するための代替手段が用意されている。
+例えば、地図コンテンツでは、ピンチ操作やタップしたまま指を動かすことで拡大・縮小、表示領域の移動を可能にするものがある。それに加えて操作パネルに「+」「-」ボタンや矢印などの操作パネルを設け、同等の操作ができるよう代替手段を提供している。
+テスト・チェック方法  ポインタジェスチャを使った操作の場合、代替手段となるボタンなどが配置されているか  参考文献  WCAG 2.1対応項目：原文 Guideline 2.5.1 Pointer Gestures  </description>
+    </item>
+    
+    <item>
+      <title>2.5.2 ポインタ操作のキャンセルができる</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/5/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/5/2/</guid>
+      <description> 2.5.2 ポインタ操作のキャンセルができる 詳細 ユーザーは、自身が望んでいないコンテンツを誤ってクリック（またはタップ）してしまうことがある。その際にポインタ操作をキャンセルできるようにする。例えば「タップしたまま指をずらしてから離せば、タップイベントはキャンセルされる」などである。
+具体的には、次のいずれかの対応が求められる。
+ ダウンイベントがない：コンテンツを押下したタイミングで機能が実行されない 中止または元に戻すことができる：コンテンツから手を離したタイミング（アップイベント）で、ダウンイベントの中止か元に戻すことができる  ただし、ダウンイベントのみで機能を完了させることが必要不可欠な場合は除く。 この項目は、クリックやタップ操作などのポインタ操作を用いるウェブコンテンツに限定される。
+テスト・チェック方法  特定の要素に、押下しただけで実行される機能が存在しない 1がある場合、押下した領域外で離すことにより機能をキャンセル・中止できる  参考文献  WCAG 2.1対応項目：原文 Guideline 2.5.2 Pointer Cancellation  </description>
+    </item>
+    
+    <item>
+      <title>2.5.3 目に見えるテキストと支援技術で読み上げるテキストの内容が一致している</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/5/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/5/3/</guid>
+      <description> 2.5.3 目に見えるテキストと支援技術で読み上げるテキストの内容が一致している 視覚的に見える文字と、スクリーンリーダーで読み上げられる文字の意味が異なると、ユーザーの混乱を招く可能性があるため、両者とも同じ内容の文字にする。
+レビュー・テスト方法  コードレビュー 支援技術で正しく読み上げられていること  実装方法 ボタンラベル 良い実装例 aria-labelで表示されたテキストと視覚的に表示されるテキスト
+&amp;lt;button aria-label=&amp;quot;Go&amp;quot;&amp;gt;Go&amp;lt;/button&amp;gt;  悪い実装例 aria-labelで表示されたテキストは「Find in this site」だが、視覚的に表示されるテキストは「Go」で不一致。
+&amp;lt;button aria-label=&amp;quot;Find in this site&amp;quot;&amp;gt;Go&amp;lt;/button&amp;gt;  参考文献  Understanding Success Criterion 2.5.3: Status Messages Failure due to &amp;ldquo;accessible name&amp;rdquo; not containing the visible label text  </description>
+    </item>
+    
+    <item>
+      <title>2.5.4 動きによる操作以外でも操作を可能にする</title>
+      <link>https://openameba.github.io/a11y-guidelines/2/5/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/2/5/4/</guid>
+      <description> 2.5.4 動きによる操作以外でも操作を可能にする デバイスを振る・傾けるなど動きによって操作を促す場合、間違えて動作をしてしまったり、ユーザーが固定した状態でつかうことを考慮して動きによる操作以外でも操作を可能にしておく。
+特定の動作ができないユーザーのために無効にできる、または別の方法でも操作する機能をもたせることが好ましい。
+テスト・チェック方法  動きによる操作を無効にできる 動きによる操作以外の方法で操作する機能がある  参考文献  Understanding Success Criterion 2.5.4: Motion Actuation  </description>
+    </item>
+    
+    <item>
+      <title>3.1.1 ページの言語を指定する</title>
+      <link>https://openameba.github.io/a11y-guidelines/3/1/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/3/1/1/</guid>
+      <description> 3.1.1 ページの言語を指定する プログラムが解釈できるように、Webページのデフォルトの言語を指定する。
+詳細 html要素のlang属性に適切な言語を指定することで、
+ スクリーンリーダーなどの支援技術を用いているユーザーにも正しい発音規則を提供する ビジュアルブラウザは、文字や書体を正しく表示する メディアプレイヤーは、キャプションを正しく表示する 自動翻訳、検索エンジンでインデックスされやすくなる textareaでハイライト表示される  ことができ、全てのユーザーがコンテンツを理解しやすくなる。 また、部分的にページ全体と異なる言語を適用する場合、その要素に個別にlang属性を定義すると尚良い。
+テスト・チェック方法 マークアップ時、コードレビューによるチェックを行う
+実装方法 良い実装例 HTML文書の内容が日本語の場合 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;ja&amp;quot;&amp;gt;  部分的に異なる言語を適用する場合 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;ja&amp;quot;&amp;gt; ... &amp;lt;body&amp;gt; ... &amp;lt;h3 lang=&amp;quot;en&amp;quot;&amp;gt;How to use&amp;lt;/h3&amp;gt; ...  参考文献  WCAG 2.0対応項目：原文 3.1.1 Language of Page WCAG 2.0対応項目：和訳 3.1.1 ページの言語 html 要素の lang 属性を使用する  </description>
+    </item>
+    
+    <item>
+      <title>3.1.3 一般的でない用語は補足説明をする</title>
+      <link>https://openameba.github.io/a11y-guidelines/3/1/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/3/1/3/</guid>
+      <description> 3.1.3 一般的でない用語は補足説明をする 一般的に使われていない用語やサービス独自の用語を使うと、ユーザーが内容を理解するのに時間がかかり、サービス側の意図した内容が十分に伝わらない可能性がある。
+そのため、次のような方法で補足説明をする。
+ 用語集に定義を掲載する（ヘルプページへのリンクなど） ページ末尾での説明 ツールチップを使った説明 初めて使われるときにカッコ書きで説明を記載する  テスト・チェック方法  用語の補足説明を行なっているリンクや表示があるか 第三者が見たときに意味が伝わるか  参考文献  WCAG 2.0対応項目：原文3.1.3 Unusual Words WCAG 2.0対応項目：和訳3.1.3 一般的ではない用語 一般的ではない用語: 達成基準 3.1.3 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>3.1.5 難しい文章表現を避ける</title>
+      <link>https://openameba.github.io/a11y-guidelines/3/1/5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/3/1/5/</guid>
+      <description> 3.1.5 難しい文章表現を避ける コンテンツは、できる限りわかりやすく簡潔に書かれているべきである。固有名詞や題名以外のテキストで、難解な言い回しや表現を避けるべきである。読解レベルは中学3年生が読めるものであれば問題ないと言えるが、その評価は難しい。
+もし難解な表現を使わざるを得ない場合は、要約や図解、音声を利用できるなどの補足があると良い。
+読みやすいテキストや図解があると、ほとんどのユーザーにとっても理解しやすくなる。そのなかでも、ディスクレシアなどの読字障害のユーザーには特に効果がある。
+テスト・チェック方法 1. textlintなどの校正ツールを使用する Atomエディタなどにtextlintをインストールしておく。文章作成時に、日本語として不適切な表現を指摘してくれるため、文章校正に用いることができる。
+ほかにも、機械的に判断できる日本語の文章難易度の評価にはjReadabilityなどのツールがある。
+  textlintを設定しているAtomエディタの使用イメージ。文法的に不適切な箇所にエラーが表示されている。   2. 文章作成後に複数人に確認してもらう 次のような確認項目を挙げることはできるが、適切なテスト手法はない。文章作成後、複数人に確認してもらうなどのフローを挟むことを推奨する。
+ 段落、文章、単語を短くする。長い文は分割を検討する 専門的な用語や俗語などの言い回しを避け、一般的な単語を選ぶ  対象ユーザーに適した単語の選択かどうかの視点も重要である  冗長な単語を取り除く 単語やフレーズを複数並べる場合、文章よりもリストの方が読みやすくならないかを検討する 受動態の文は能動態にできないかを検討する 名前やラベルに一貫性を持たせる  参考文献  Understanding Success Criterion 3.1.5 | Understanding WCAG 2.0 達成基準 3.1.5 を理解する | WCAG 2.0解説書 G86: 前期中等教育レベルを超えた読解力を必要としないテキストで要約を提供する | WCAG 2.0 達成方法集 G103: アイデア、事象及びプロセスの説明を理解しやすくするために、視覚的な図画、写真及びシンボルを提供する | WCAG 2.0 達成方法集 G153: テキストを読みやすくする | WCAG 2.0 達成方法集  </description>
+    </item>
+    
+    <item>
+      <title>3.2.1 フォーカス時にコンテンツを大きく変更しない</title>
+      <link>https://openameba.github.io/a11y-guidelines/3/2/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/3/2/1/</guid>
+      <description> 3.2.1 フォーカス時にコンテンツを大きく変更しない フォーカスを受け取ったときに、ユーザーが意図しない変更はしない。
+視覚障害や運動障害のあるユーザーは、キーボードなどで操作を行うことがある。フォーカスで次の「悪い例」のような変更が起きると、操作を完了できない恐れがある。クリックやエンターキーで行うのが望ましい。
+具体例 悪い例 要素にフォーカスした時、次のような「コンテキストの変化」を起こすこと。
+ フォームが自動的に送信される 新しいウィンドウを開く ページ内の現在位置を移動したり別のページに移動したりさせるコンポーネント  レビュー・テスト方法 マークアップ実装時、コードレビューによるチェック
+参考文献  WCAG 2.0対応項目：原文 3.2.1 On Focus WCAG 2.0対応項目：和訳 3.2.1 フォーカス時 新しいウィンドウを開くときには利用者へ事前に知らせる  </description>
+    </item>
+    
+    <item>
+      <title>3.2.2 予測できない変化を起こさない</title>
+      <link>https://openameba.github.io/a11y-guidelines/3/2/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/3/2/2/</guid>
+      <description>3.2.2 予測できない変化を起こさない フォーム入力時に、下記のようなユーザーが予測できないような動作を行うと混乱させてしまう可能性がある。また、全盲の人や特定の認知能力の低下している人などには、変化に気づきづらい・気を取られるなど操作が困難になってしまう可能性がある。そのためユーザーが予測できない動作は行わないようにする。
+ ラジオボタンやチェックボックスの選択で、ポップアップを開いてしまう フォームの最後の項目を入力すると、自動的にフォームを送信してしまう  3.2.5 要求による変化 では、ログアウト後の5秒経過したら画面で自動的にTOPに戻すなど、ページ全体で予測できない変化は起こさないのが望ましいとされている。
+具体例 新規タブやポップアップを開くことを事前に伝える   Good  新規タブを開くリンクの横には、それを示すアイコンが表示されている。ユーザーはそのリンクを開くと起きる動作が予測できる。   セレクトボックスの具体例 決定ボタンのあるフィルターコンポーネントの例     Good  決定ボタンを押した時にフィルター操作を実行する        Bad  選択しただけでフィルター操作が実行されてしまう。キーボードで操作しているユーザーは、選択肢を上下に移動するだけでフィルター操作が実行されてしまうことになる。     決定ボタンのないフィルターコンポーネントの例     Good  フィルター上を上下キーで移動して、決定ボタン（スペース）を押して、はじめて実行される。標準的なセレクトボックスの挙動と一致している。        Bad  フィルター上を上下キーで移動するだけでフィルター操作が実行されてしまう。予測できない動作であり、ユーザーは目的のフィルター条件に達するまで何度も実行しなくてはならない。     レビュー・テスト方法  企画時、デザイン時、実装時に、下記をチェックする  各コントロール（ラジオボタンやリンク、フォーム要素など）を選択した時の動作を確認する ユーザーが想定できない挙動を自動で行っていないかを確認する   参考文献  WCAG 2.</description>
+    </item>
+    
+    <item>
+      <title>3.2.3 ナビゲーションの位置を統一する</title>
+      <link>https://openameba.github.io/a11y-guidelines/3/2/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/3/2/3/</guid>
+      <description> 3.2.3 ナビゲーションの位置を統一する サービス内で繰り返し表示されるナビゲーションの位置を、画面ごとに変えず、同じ順序で表示する。
+詳細 ウェブサービスでは、グローバルナビゲーションなどのコンポーネントがサービス内で繰り返し表示されることがよくある。しかし、画面ごとにナビゲーションの位置が変わると、回遊するユーザーは画面ごとにナビゲーションを探さなければならなくなる。順序を統一することで、あらゆるユーザーが、より素早く目的のコンテンツにたどり着きやすくなる。（ナビゲーションを表示しないことを薦めるものではない）
+スクリーンリーダーや拡大鏡を用いて閲覧しているユーザーへの影響は特に大きい。同じ操作で読み飛ばすことができず、画面ごとに全てのナビゲーションを確認し直すことになり、非常に不便になる。
+また、あらかじめ表示される位置をユーザーがわかっていれば、誤タップの防止や次のアクションをしやすくなるという利点もある。
+具体例 たとえば、
+ 検索ボックスを画面によって上に置いたり下に置いたりしない パンくずリストは常にヘッダーの下に配置する 操作の実行ボタンは常にヘッダー内の右に配置する  などすれば、ナビゲーションを用いないときにはその次のコンテンツまでスキップすれば良く、用いるときには視覚的な位置感覚で探すことが簡単になる。
+例外 ナビゲーションの位置をユーザーが変更する場合は例外とする。
+テスト・チェック方法 企画・デザイン時 ワイヤーフレームの作成時に、ナビゲーションの順序がサービス内で統一されているかを確認する。
+なお、ナビゲーションがサービス内で同じサイズであることも重要だが、詳しくは3.2.4で解説する。
+参考文献  達成基準 3.2.3 を理解する | WCAG 2.0解説書  </description>
+    </item>
+    
+    <item>
+      <title>3.2.4 一貫した識別性を持たせる</title>
+      <link>https://openameba.github.io/a11y-guidelines/3/2/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/3/2/4/</guid>
+      <description> 3.2.4 一貫した識別性を持たせる 同一サービス内で同じ機能のコンポーネントは、同じ見た目・ラベリングにする。ワーディングリストやスタイルガイドで定義と用途を記載することが望ましい。
+具体例 悪い例  カメラのアイコンが撮影機能と画像という意味で使われている 検索機能に、あるページだと「検索」、あるページだと「探す」というラベリングをつけている    Bad  カメラのアイコンが画像一覧と撮影機能両方を表してしまっている。   テスト・チェック方法  企画時 デザインレビュー 実装後  参考文献  WCAG 2.0対応項目：原文 Guideline 3.2.4 Consistent Identification WCAG 2.0対応項目：和訳 一貫した識別性:達成基準 3.2.4 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>3.3.1 エラーを特定できる</title>
+      <link>https://openameba.github.io/a11y-guidelines/3/3/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/3/3/1/</guid>
+      <description> 3.3.1 エラーを特定できる 入力エラーが自動的に検出された場合は、エラーとなっている箇所が特定され、ユーザーにテキストで説明される。
+エラーメッセージは、次のような方法でわかりやすく、見やすい場所に配置すること。
+ 各componentの近くにエラーテキストを表示するUIにする 詳細なエラーを伝えることが難しい場合、ヘルプページへのリンクなどを用意する     Good  エラーとなっている入力項目の近くにエラーメッセージを表示している       Bad  エラーとなっている項目と無関係な位置にエラーメッセージを表示している。また、エラーの該当箇所や理由を説明していない。ユーザーはエラーの原因を推測し、入力箇所を探す必要がある。     テスト・チェック方法  企画時、デザイン時、実装時に、下記をチェックする  エラー箇所の洗い出し エラー文言の検討 エラー文言の表示位置  テスト時  エラー発生時に、エラーの箇所が示され、解消手段がテキストで示されているか   参考文献  WCAG 2.0対応項目：原文 Error Identification: Understanding SC 3.3.1 WCAG 2.0対応項目：和訳 エラーの特定: 達成基準 3.3.1 を理解する   </description>
+    </item>
+    
+    <item>
+      <title>3.3.2 入力項目にラベルまたは説明をつける</title>
+      <link>https://openameba.github.io/a11y-guidelines/3/3/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/3/3/2/</guid>
+      <description> 3.3.2 入力項目にラベルまたは説明をつける コンテンツがユーザーの入力を要求する場合は、ラベル（項目名）または説明文をつける。
+クリック範囲や紐付けなどは、適切なマークアップを行い、長文の場合は常に表示させなくても良い。ユーザーが入力をしようとフォーカスした時に読み上げられることが重要。 ただし、placeholderをラベル代わりに使うと、入力中に分からなくなるため避ける。
+具体例    Good  フォームの外にラベルがあり、常に確認することができる。       Bad  placeholderをラベル代わりにしている。入力中にはラベルが表示されないため、何を入力中なのかわからなくなってしまう。     テスト・チェック方法  企画時 デザインレビュー コードレビュー 実装後  参考文献  WCAG 2.0対応項目：原文 Guideline 3.3.2 Labels or Instructions: WCAG 2.0対応項目：和訳 ラベル又は説明: 達成基準 3.3.2 を理解する  </description>
+    </item>
+    
+    <item>
+      <title>3.3.3 エラーの修正を提案する</title>
+      <link>https://openameba.github.io/a11y-guidelines/3/3/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/3/3/3/</guid>
+      <description>3.3.3 エラーの修正を提案する 入力エラーを機械的に検出でき、修正方法がある場合、エラーの修正方法をユーザーに表示する。ただし、提示することでセキュリティやコンテンツの目的を損なう場合は除く。
+具体例  悪い例：「〇〇エラー」 良い例：「〇〇エラーです。××を△△に修正してください」  良くあるエラー例と修正方法例 下記に良くある例を示す。サービスごとに統一した文言があるとなお良い。
+ 必須項目の入力漏れ：〇〇は必須項目です 入力可能な文字以外を入力したエラー：〇〇は半角英数字のみで入力してください  注釈：プログラムで置換可能なものは、エラーを出すよりもプログラム側で変換することが望ましい  サーバーエラー：しばらく時間をおいてから再度お試しください  セキュリティ的な例外 ID・パスワード入力の回避方法を入れてはいけない。どちらかが存在していることがわかってしまうからである。その場合は「IDまたはパスワードが間違っています」と表現をぼかすようにする。
+レビュー・テスト方法  企画時 デザインレビュー 実装後  実装方法 type, required, pattern, min, max属性など用いると、JavaScriptを使わなくてもフォーム検証を行うことができる。 フォームデータの検証 - ウェブ開発を学ぶ | MDNや制約の検証 - HTML | MDNが参考になる。
+pattern属性によるフォーム検証 pattern属性に含めた文字列（正規表現可）のみ送信できる。
+&amp;lt;form&amp;gt; &amp;lt;label for=&amp;quot;choose&amp;quot;&amp;gt;What&#39;s name is this blog service?&amp;lt;/label&amp;gt; &amp;lt;input id=&amp;quot;choose&amp;quot; name=&amp;quot;service_name&amp;quot; required pattern=&amp;quot;ameba blog|ameblo&amp;quot;&amp;gt; &amp;lt;button&amp;gt;submit&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt;    Good  pattern属性を用いた入力フォームの例。「ameba blog」と「ameblo」のみ送信が可能になる。それ以外の文字列を入力して送信すると「指定されている形式で入力してください」などのvalidationエラーの文言が入力欄付近に表示される。   required属性によるフォーム検証 required属性を持つ入力項目が空のとき、送信できない。</description>
+    </item>
+    
+    <item>
+      <title>3.3.4 入力時のエラーを回避できる</title>
+      <link>https://openameba.github.io/a11y-guidelines/3/3/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/3/3/4/</guid>
+      <description> 3.3.4 入力時のエラーを回避できる 法的・金銭の発生する取引・データの修正や削除に関わる操作をユーザーが行うとき、取り消し・修正・確認ができるようにする。
+このような操作は、ミスによって起きる影響が重大である。そのため、次のようにしておくことで、ユーザーがミスした時にユーザーが重大な損益を被らないようにする。
+ 取り消し：操作を取り消すことができる 修正：入力したデータのエラーがチェックされ、ユーザーが修正できる 確認：操作を完了する前に、ユーザーが情報を見直して確認・修正ができる  具体的には十分な達成方法 - WCAG 2.0 クイックリファレンスが参考になる。
+具体例 発生しやすいミスの具体例  連絡先を書き間違える 誤って記事を上書きしてしまう バックアップを取らずに必要な記事を削除してしまう 誤ってキーを押してしまい操作が実行されてしまう チケットの購入枚数を間違える 払い戻し不可の航空券の発着日を間違えて購入する  あくまで一例であり、ユーザーがどんなミスをしてしまうかはサービス側で特定できない。そのため、ミスが起きないように作る、ミスが発生した時に修正・取り消しできることが重要である。
+テスト・チェック方法 ユーザーの入力と送信が必要となる工程で、下記のいずれかが担保されていること
+ 実行前に内容を確認する 実行後に修正できる 実行後に取り消しできる  参考文献  Understanding Success Criterion 3.2.2 | Understanding WCAG 2.0 達成基準 3.3.4 を理解する | WCAG 2.0解説書 十分な達成方法 - WCAG 2.0 クイックリファレンス  </description>
+    </item>
+    
+    <item>
+      <title>3.3.5 状況に応じたヘルプが利用できる</title>
+      <link>https://openameba.github.io/a11y-guidelines/3/3/5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/3/3/5/</guid>
+      <description> 3.3.5 状況に応じたヘルプが利用できる ユーザーの状況に応じたヘルプを、ユーザーが必要な時に利用できる。そのためにヘルプは、ユーザーがはっきりと認識できるところに示す。
+一例として次のような方法がある
+ ウェブページ内に、ヘルプページへのリンクをいれる スペルチェック機能やテキストの入力候補を表示する 入力欄の前に、入力欄の内容を説明する説明文・ラベルをつける 入力欄の横に、入力例を表示する 要素をマウスオーバーした際に、ツールチップなどで補足説明をする  title属性を使うことでも代替できる   具体例 入力欄の前に適切なラベルが設定されている 良い例 ラベルを見ただけで、ユーザーはなにをするべきか理解できる。
+悪い例 プレースホルダーのみに説明・入力例がある。これだと次のような問題が起きやすい
+ 入力中に読めない プレースホルダーのテキストの色が薄すぎて読めない  一般的ではない用語に注釈がある    Good  あるWebサービス内でのみ使用されている一般的でない用語について、ユーザーが内容や説明を確認することができる。       Bad  一般的でない用語の説明やヘルプページへの動線がなく、ユーザーは内容や説明を確認できない。     テスト・チェック方法  企画時  機能の追加・更新時に、次のような箇所で説明があるか。  ヘルプページ  前提として、遷移先であるヘルプページは、ユーザー環境に依存することなく確認できることが望ましい。   参考文献  WCAG 2.0対応項目：原文 3.3.5 Help WCAG 2.0対応項目：和訳 3.3.5 ヘルプ  </description>
+    </item>
+    
+    <item>
+      <title>4.1.1 HTMLを正しく記述する</title>
+      <link>https://openameba.github.io/a11y-guidelines/4/1/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/4/1/1/</guid>
+      <description>4.1.1 HTMLを正しく記述する どのブラウザから読まれても正常に動作するよう、HTMLを正しく記述する。HTMLが正しく記述されていないと、一部のブラウザで表示がおかしくなったり、スクリーンリーダーなどの支援技術で正しく解釈できない。
+HTMLを記述する時は、以下の点に注意する。
+ 開始タグと終了タグを正しく記述する 入れ子にするタグの要素はHTML仕様通りに記述する 各要素に設定するID属性はページ内で重複していない  レビュー・テスト方法 以下のツールを用いて、セルフやコードレビューなどでチェックする。
+ Validator eslint-plugin-react  負担を減らすため、テキストエディタやCIと連携させてチェックを自動化することが望ましい。
+ AtomLinter/linter-eslint roadhump/SublimeLinter-eslint mtscout6/syntastic-local-eslint.vim Microsoft/vscode-eslint WebStorm -&amp;gt; Preferences -&amp;gt; Languages &amp;amp; Frameworks -&amp;gt; JavaScript -&amp;gt; ESLint  実装方法 良い実装例 要素の閉じタグがある
+&amp;lt;div&amp;gt;文章です&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;文章です2&amp;lt;/div&amp;gt;  要素の使い方が正しい
+&amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#menu1&amp;quot;&amp;gt;メニュー１&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#menu2&amp;quot;&amp;gt;メニュー２&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt;  IDが重複していない
+&amp;lt;h2 id=&amp;quot;contents1&amp;quot;&amp;gt;コンテンツ１&amp;lt;/h2&amp;gt; &amp;lt;h2 id=&amp;quot;contents2&amp;quot;&amp;gt;コンテンツ２&amp;lt;/h2&amp;gt;  悪い実装例 要素の閉じタグが無い
+&amp;lt;div&amp;gt;文章です &amp;lt;div&amp;gt;文章です2  要素の使い方が間違っている
+&amp;lt;ul&amp;gt; &amp;lt;a href=&amp;quot;#menu1&amp;quot;&amp;gt;&amp;lt;li&amp;gt;メニュー１&amp;lt;/li&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;quot;#menu2&amp;quot;&amp;gt;&amp;lt;li&amp;gt;メニュー２&amp;lt;/li&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;/ul&amp;gt;  IDが重複している
+&amp;lt;h2 id=&amp;quot;contents&amp;quot;&amp;gt;コンテンツ１&amp;lt;/h2&amp;gt; &amp;lt;h2 id=&amp;quot;contents&amp;quot;&amp;gt;コンテンツ２&amp;lt;/h2&amp;gt;  参考文献  WCAG 2.</description>
+    </item>
+    
+    <item>
+      <title>4.1.2 HTMLの要素や属性を正しい役割で使用する</title>
+      <link>https://openameba.github.io/a11y-guidelines/4/1/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/4/1/2/</guid>
+      <description> 4.1.2 HTMLの要素や属性を正しい役割で使用する リンクやボタンなどユーザーが操作可能な項目を作成するときに、本来リンクやボタンに使わない要素や属性を使用して記述すると、ブラウザやスクリーンリーダーなどで正しく操作できなくなる可能性がある。そのため、ユーザーが操作可能な項目は、正しい要素や属性を用いて記述する。
+具体例 見出しに見出しタグh1~h6要素を使っている    Good  見出しタグを正しく使用している場合。支援技術で、見出しを一覧化して表示する機能を使っても、全ての見出しを表示できるため、必要な情報を選んで読みやすい。      Bad  見出しタグを適切に使用していない場合。CSSでスタイリングしているため、仕上がりは見出しのように見えていたが、見出しタグを使っていないために、見出し一覧機能を使うと見出しとして表示されない。   テスト・チェック方法  コードレビュー  実装方法 悪い実装例 ボタンの項目なのに、spanタグを使って実装している
+&amp;lt;span class=&amp;quot;button&amp;quot;&amp;gt;登録する&amp;lt;/span&amp;gt;  良い実装例 buttonタグを使って実装している
+&amp;lt;button type=&amp;quot;button&amp;quot;&amp;gt;登録する&amp;lt;/button&amp;gt;  参考文献  WCAG 2.0対応項目：原文 4.1.2 Name, Role, Value: WCAG 2.0対応項目：和訳 4.1.2 名前 (name) ・役割 (role) 及び値 (value) F59: 達成基準 4.1.2 の失敗例 － スクリプトを用いて、コントロールに役割（role）を提供することなしに、HTML の div 要素又は span 要素をユーザインタフェースのコントロールにしている ARIA4: ユーザインターフェース コンポーネントの役割（role）を明らかにするため、WAI-ARIAロールを使用する  </description>
+    </item>
+    
+    <item>
+      <title>4.1.3 コンテンツの変更をユーザーに知らせる</title>
+      <link>https://openameba.github.io/a11y-guidelines/4/1/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/4/1/3/</guid>
+      <description> 4.1.3 コンテンツの変更をユーザーに知らせる この項目の目的は、フォーカスが与えられてないコンテンツの変更をより多くのユーザーが認識できるようにすることである。 これは、スクリーンリーダーでの音声読み上げでコンテンツを閲覧しているユーザーに特に効果がある。視覚的にステータスメッセージを読めない場合、必要なステータスに気づけず操作できなくなることがあるからだ。 コンテンツに適切な役割を割り当てることで、スクリーンリーダーなどの支援技術が変更を伝えてくれる。
+ ステータスメッセージとは コンテンツへのアクションの成功や結果、処理の進行状況やエラー情報など。 なお、コンテキストの変化はステータスではない。
+検索結果表示画面を例にした場合、
+ 検索結果が表示される  は、コンテキストの変化に関する情報になるため、ステータスメッセージには含まれない。
+ 検索実行のアクション後に表示される「検索中…」というテキスト 検索実行エラー時の「検索キーワードに記号は含めません」というエラーテキスト  などステータスのについて表示されるテキストはステータスメッセージに含まれる 
+レビュー・テスト方法  コードレビュー時、適切なライブリージョンが設定されていること コンテンツが変更されたときに、支援技術が適切に読み上げること  実装方法  変更を知らせたい要素にrole属性とWAI-ARIAの aria-live 属性を指定する その要素がhtmlの描画時に存在している（javascriptで動的に埋め込まれていない） JavaScriptで通知したいテキストをその要素に挿入している（ARIA19: エラーを特定するために、ARIA role=alert 又はライブリージョン(Live Regions)を使用する）  入力フォームでのエラー表示 良い実装例 &amp;lt;div id=&amp;quot;error&amp;quot; role=&amp;quot;alert&amp;quot; aria-live=&amp;quot;assertive&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;  悪い実装例 role=&amp;quot;alert&amp;quot; のみ指定されている。 role属性をサポートしていないブラウザがあるので、WAI-ARIAの aria-live=&amp;quot;assertive&amp;quot;も併用する。
+&amp;lt;div id=&amp;quot;error&amp;quot; role=&amp;quot;alert&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;  参考文献  Understanding Success Criterion 4.1.3: Status Messages 4.1.3 Parsing ARIA19: エラーを特定するために、ARIA role=alert 又はライブリージョン (Live Regions) を使用する  </description>
+    </item>
+    
+    <item>
+      <title>対象となるサービス</title>
+      <link>https://openameba.github.io/a11y-guidelines/services/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/services/</guid>
+      <description>対象となるサービス  アメブロ 読書のお時間です  アメブロ プロジェクトの目的 誰もがいつでも、迷わず「書く」「読む」「応える」ができる状態を目指す
+ 実現可能性を確認して、対象範囲を明確にする（調査） 開発者がハッピーに開発しプロダクトに誇りを持てるものにする アクセシビリティを考慮できて当たり前な文化をつくる  対象範囲 SPブラウザで閲覧する
+ トップページ： https://ameblo.jp/{amebaId} 記事詳細ページ： https://ameblo.jp/{amebaId}/entry-{entryId}.html  の、全てのページとコンテンツを対象とする。
+本プロジェクトの目的の実現に向けたアクセシブルなサービスを提供できるよう努めるが、ユーザーから提供されるコンテンツや情報そのものは、本ガイドラインの対象外とする。
+より多くのユーザーにアクセスされている上記2画面を当面の目標とする。
+PCブラウザやネイティブアプリなどの他端末など、対象範囲は徐々に広げていくものとする。
+読書のお時間です WIP</description>
+    </item>
+    
+    <item>
+      <title>表示の向きを固定しない</title>
+      <link>https://openameba.github.io/a11y-guidelines/1/3/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://openameba.github.io/a11y-guidelines/1/3/4/</guid>
+      <description> 1.3.4 表示の向きを固定しない 詳細 ウェブページを閲覧する際、スマートフォンやタブレッドなどは縦向きで閲覧することが多いが、車椅子にスマートフォンを横向きで固定する人もいる。縦向き固定などで画面を作成すると、横向きで使う人が閲覧困難になるため、縦向き横向きどちらでも画面を正しく表示できるようにする。ただし、ピアノのアプリなど表示の向きを固定することが必要不可欠な場合は例外とする。
+具体例 悪い例 コンテンツの幅や高さを絶対値で指定している。幅や高さを固定してしまうと、傾けた時にはみ出して見えなくなる場合がある。
+.modal { width: 500px; height: 500px; }  &amp;lt;div class=&amp;quot;modal&amp;quot;&amp;gt; コンテンツの中身 &amp;lt;/div&amp;gt;  良い例 コンテンツの幅や高さを相対値で指定している。相対値であれば、傾けた時に画面の向きに合わせて適切に表示される。
+.modal { width: 80%; height: 80%; }  &amp;lt;div class=&amp;quot;modal&amp;quot;&amp;gt; コンテンツの中身 &amp;lt;/div&amp;gt;  テスト・チェック方法  デザイン時、縦向き横向き両方でデザインする 実装時、縦向き横向きで表示しても崩れないように相対値を用いる テスト時、デバイスの向きを変えても表示が崩れないこと  参考文献  Understanding Success Criterion 1.3.4: Orientation  </description>
+    </item>
+    
+  </channel>
+</rss>
